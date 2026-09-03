@@ -52,8 +52,8 @@ design-system/
 │   ├── button.md
 │   ├── navigation.md
 │   └── indicator-status.md
-├── patterns/                       [F] Figma "(Usage)" 프레임 = 조합 패턴
-│   └── commerce.md                 상품 카드 · 상품 상세 · 장바구니 · 이벤트
+├── patterns/                       [F] 컴포넌트 하단 "(Usage)" 가이드 = 사용 규칙·조합
+│   └── commerce.md                 상품 카드 · 상품 상세 · 장바구니 · 이벤트 · 액션 영역
 └── guidelines/
     ├── naming.md                   [F] 네이밍 규칙 (Change Log 원문)
     ├── changelog.md                [F] Change Log 전문
@@ -107,6 +107,19 @@ Figma Overview 페이지(`1183:7436`)에 적힌 상태 그대로입니다.
 | 3 | **gray 리넘버링 잔여** | Change Log `251224`의 `gray 50→100, 100→150` 이후 `bg.subtle`·`bg.muted`·`divider.soft`·`text.primary` 라벨이 옛 번호 → [color.md](design-system/foundations/color.md) |
 | 4 | **오타 토큰** | `color.text.priamry`, `color.divider.defualt`, `sementic/background/*`, Price의 `discout` → [naming.md](design-system/guidelines/naming.md) |
 
+## 컴포넌트 사용 규칙은 `(Usage)` 가이드에 있습니다 `[F]`
+
+일부 컴포넌트는 프레임 하단에 `<이름>(Usage)` 가이드를 갖고, 거기에 **프로퍼티별 사용 규칙**이
+문장으로 적혀 있습니다. 예: *"showDimmer 속성을 활성화하면 이미지 위에 SOLD OUT 딤 처리가 적용됩니다."*
+
+| 가이드 있음 | 없음 |
+|---|---|
+| Card(5종) · Thumbnail · Label · Drawer · Toast · Action Area · Search | Accordion · Avatar · Carousel · OptionRow · Price · List · Table · Text List · Dialog · Tooltip · Snack Bar |
+
+**가이드에는 베리언트 목록에 없는 프로퍼티가 나옵니다** — `showDimmer` · `showCount` · `required` ·
+`showSubtitle` · `checked`. 베리언트만 보고 props를 정의하면 누락되므로, 구현 전 해당 컴포넌트의
+가이드 절을 반드시 확인하세요. → [components/README.md](design-system/components/README.md)
+
 ## 조사되지 않은 영역
 
 추정으로 채우지 않고 비워 둔 것들입니다.
@@ -117,6 +130,8 @@ Figma Overview 페이지(`1183:7436`)에 적힌 상태 그대로입니다.
   이 카테고리들은 상세 프레임이 없습니다. 해당 문서는 Overview 상태표와 Change Log 기반입니다.
 - `Caption/1`, `Caption/3`, `Caption/semibold/2·3` 의 사이즈/행간
 - `color.icon.*` 의 실제 HEX
+- `Search(Usage)` 4개 절(State · Spec · Behavior · With Keyboard)의 상세 내용
+- 아이콘 200종 각각의 Figma 컴포넌트 설명
 
 ---
 
@@ -129,8 +144,8 @@ Figma Overview 페이지(`1183:7436`)에 적힌 상태 그대로입니다.
 | 라이브러리명 | `NDS - NOVERA Design System` |
 | 변수 컬렉션 | `primitive` (예: `number/unit/*`, `color/*`) |
 | Figma 페이지 | Overview `1183:7436` · Foundation `0:1` · • Content Display `1595:11126` · • Overlay `1595:11129` |
-| 조사 방법 | Figma MCP — `get_metadata` / `get_variable_defs` / `get_screenshot` / `search_design_system` |
-| 최초 조사일 | 2026-09-02 |
+| 조사 방법 | Figma MCP — `get_metadata` / `get_variable_defs` / `get_screenshot` / `get_design_context` / `search_design_system` |
+| 최초 조사일 | 2026-09-02 (Usage 가이드 보강 동일자) |
 | 적용 서비스 | [`sirasolfa/shop-lab`](https://github.com/sirasolfa/shop-lab) — NOVERA shop |
 
 갱신 절차와 MCP 호출 순서는 [`design-system/README.md`](design-system/README.md#원본-갱신-방법)에 있습니다.

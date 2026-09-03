@@ -123,10 +123,15 @@ Semantic Color Token 페이지(`144:419`)의 표 원문입니다.
 | `color.bg.muted` | *(표에 설명 없음)* | `color/gray/100` | `color/bg/surface/muted` | `#f4f6fb` ⚠️ = gray/**150** |
 | `color.bg.disabled` | *(표에 설명 없음)* | `color/gray/200` | `color/bg/surface/disabled` | `#edf0f5` ✓ |
 | `color.bg.dim` | *(표에 설명 없음)* | `color/alpha/black64` | `color/bg/overlay/dim` | `#000000a3` ✓ |
+| *(표에 없음)* | — | — | **`color/bg/overlay/mask`** | `rgba(0,0,0,0.4)` = `color/alpha/black40` |
 | `color.bg.inverse` | *(표에 설명 없음)* | `color/gray/900` | `color/bg/inverse` | `#2f3744` ✓ |
 
 > 변수 경로에 표에는 없는 중간 그룹(`surface/`, `overlay/`)이 들어갑니다.
 > 표기: `color.bg.default` ↔ 변수: `color/bg/surface/default`.
+
+> **`color/bg/overlay/mask`** 는 Semantic 표에 없지만 실제로 쓰입니다 — Drawer의 Dimmer가 이 값입니다
+> (`dim` 은 64%, `mask` 는 40%). 오버레이 종류에 따라 두 단계를 나눠 쓰는 것으로 보이며,
+> 표에 누락돼 있습니다. → [../components/overlay.md](../components/overlay.md)
 
 ### icon
 
@@ -163,6 +168,7 @@ Semantic Color Token 페이지(`144:419`)의 표 원문입니다.
 | 4 | `brand/*` 스케일 전체 | `default`, `strongest` 두 개만 확인. 중간 단계 존재 여부 미확인 |
 | 5 | `sementic/background/default` `#ffffff` · `sementic/background/inverse` `#0b0b0f` | 컬렉션 이름 오타(`sementic`). `color/bg/*` 와 중복되는 레거시로 보임 |
 | 6 | 오타 토큰 `color.text.priamry`, `color.divider.defualt` | Figma 원문 그대로. 코드로 옮기기 전 정정 여부 결정 필요 |
+| 7 | `color/bg/overlay/mask`(40%)가 Semantic 표에 누락 | `dim`(64%)과의 사용 구분 기준 확인 필요 |
 
 ---
 

@@ -61,12 +61,26 @@ Label 컴포넌트 자체는 • Content Display 페이지에 있습니다 → [
 
 | 자산 | 위치 | 비고 |
 |---|---|---|
-| `Search(Usage)` | • Overlay 페이지 `1170:5163` | `1440 × 9388`. 검색 사용 흐름 |
+| `Search(Usage)` | • Overlay 페이지 `1170:5163` | `1440 × 9388`. **검색 사용 가이드** — 아래 참조 |
 | `└ OptionRow` | • Content Display 페이지 `3445:9254` | `viewport`, `showOption`, `isDisabled` |
 | `└ Checkbox-atomic` | Card / Bottom Sheet 프레임 안 인스턴스 | Checkbox 원자 컴포넌트가 이미 조합에 쓰이는 중 |
 | `SelectField` | Card(Usage) 안 | 상품 옵션 선택 |
 
 즉 **Checkbox 는 Overview 상 In-progress 이지만, 다른 컴포넌트(CartItem 등) 안에서 이미 인스턴스로 사용 중**입니다.
+
+### 사용 가이드 — `Search(Usage)` `1170:5163`
+
+Inputs 카테고리에서 **유일하게 Usage 가이드를 가진 컴포넌트**입니다(• Overlay 페이지에 위치).
+
+| 절 | 노드 | 다루는 것 |
+|---|---|---|
+| **State** | `1170:5170` | 검색 필드의 상태별 표현 |
+| **Spec** | `1170:5195` | 치수·토큰 규격 |
+| **Behavior** | `1171:6187` | 입력·결과 동작 |
+| **With Keyboard** | `1171:6777` | 모바일 키보드가 올라온 상태 |
+
+> `[?]` 각 절의 설명 문장과 프리뷰 내용은 미조사입니다(프레임이 `1440 × 9388` 로 커서 절 제목만 확인).
+> 검색 UI를 구현할 때는 이 프레임을 Figma에서 직접 열어보는 편이 빠릅니다.
 
 ---
 
@@ -91,6 +105,8 @@ Label 컴포넌트 자체는 • Content Display 페이지에 있습니다 → [
 | 4 | 에러 메시지·헬퍼 텍스트의 스타일/색 토큰 |
 | 5 | `required` 표시의 시각 규칙(별표 색·위치) |
 | 6 | Checkbox / Radio / Switch 의 사이즈 스케일 |
+| 7 | `Search(Usage)` 각 절의 상세 내용 (State / Spec / Behavior / With Keyboard) |
+| 8 | Search 외 Inputs 컴포넌트에는 Usage 가이드가 없음 |
 
 ---
 

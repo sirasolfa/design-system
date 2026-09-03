@@ -21,6 +21,36 @@
 
 ---
 
+## 컴포넌트 프레임 하단의 `(Usage)` 가이드 `[F]`
+
+일부 컴포넌트는 프레임 **하단에 `<이름>(Usage)` 가이드**를 갖습니다. 구조는 모두 같습니다.
+
+```
+Guide                       ← "<컴포넌트 한글명>(<영문명>)의 사용 예시를 안내합니다."
+└ <컴포넌트명>
+   ├ <프로퍼티 섹션>  [Desktop / Mobile 칩]
+   │   설명 문장
+   │   └ Preview — 값별 예시 + 값 라벨 칩
+   └ …
+```
+
+### 여기서만 드러나는 사실 — 베리언트가 아닌 프로퍼티
+
+컴포넌트 세트의 **베리언트 이름**(`size=lg, textAlign=left` 등)에는 나타나지 않지만,
+Usage 가이드에는 등장하는 프로퍼티가 있습니다. Figma의 **boolean / instance-swap 프로퍼티**로
+보이며, 베리언트 목록만 읽으면 놓치게 됩니다.
+
+| 컴포넌트 | 베리언트 프로퍼티 | Usage 가이드에만 있는 프로퍼티 |
+|---|---|---|
+| Thumbnail `Ratio` | `ratio`, `color` | **`showDimmer`** |
+| Label | `size`, `textAlign` | **`showCount`**, **`required`** |
+| EventCard | `viewport`, `status` | **`showSubtitle`** |
+| CartItem | `viewport`, `state` | **`checked`** (가이드 표기 `Checked`), `type` |
+
+구현 시 props를 베리언트 목록만 보고 정의하면 이 항목들이 누락됩니다.
+
+---
+
 ## 상세 페이지의 컴포넌트 11종
 
 ### Accordion `1621:13143`
@@ -83,6 +113,19 @@
 
 > Change Log `260204`: **"required" 필수 입력/선택 표시 추가.**
 
+#### 사용 가이드 — `Label(Usage)` `1621:17816`
+
+> **Guide** — 레이블(Label)의 사용 예시를 안내합니다.
+
+| 섹션 | 뷰포트 칩 | 시안 설명 (원문) |
+|---|---|---|
+| **Text Align** | Desktop | 레이블 텍스트의 정렬 방향을 설정합니다. left, center, right 옵션을 지원합니다. |
+| **Show Count** | — | *(설명 문장 없음)* |
+
+`Show Count` 프리뷰는 `레이블 0 *` 형태로, **레이블 텍스트 + 카운트 숫자 + 필수 표시(`*`)** 를
+함께 보여줍니다. 필수 표시는 빨간색이며 Change Log `260204`의 `required` 항목과 이어집니다.
+사이즈 4단계(`lg`/`md`/`sm`/`xs`)를 행으로 나열합니다.
+
 ### List `1621:15994`
 
 여러 하위 컴포넌트를 묶은 프레임입니다.
@@ -112,6 +155,24 @@
 
 > `[?]` 이 프레임 안에 `sfhsfh`, `eryetyeyh`, `Stateㅁ파ㅜ미ㅏㅣㅏㅁ이ㅏㅠs Header` 같은
 > **키보드 입력 실수로 보이는 레이어 이름**이 남아 있습니다. 정리 필요.
+
+#### 사용 가이드 — `Thumbnail(Usage)` `2980:8714`
+
+> **Guide** — 썸네일(Thumbnail)의 사용 예시를 안내합니다.
+
+`Ratio` 컴포넌트에 대해 세 가지 프로퍼티를 설명합니다.
+
+| 섹션 | 시안 설명 (원문) | 값 |
+|---|---|---|
+| **Color** | color 속성으로 brand와 gray 두 가지 컬러 테마를 선택할 수 있습니다. | `brand` · `gray` |
+| **Ratio** | ratio 속성으로 이미지 비율을 1:1, 1.618:1, 16:9 중 선택할 수 있습니다. | `1:1` · `1.618:1` · `16:9` |
+| **Show Dimmer** | showDimmer 속성을 활성화하면 이미지 위에 **SOLD OUT 딤 처리**가 적용됩니다. | `true` · `false` |
+
+`showDimmer=true` 는 단순 어둡게 처리가 아니라 **품절(SOLD OUT) 표현**입니다.
+장바구니의 구매 불가 상품(`CartItem` `Disabled`)에서도 같은 표현을 씁니다.
+
+> `[?]` Color 섹션의 값 칩이 `color true` / `color gray` 로 찍혀 있습니다.
+> 베리언트 값은 `brand` / `gray` 이므로 `true` 는 `brand` 의 오기로 보입니다.
 
 ### Table `1621:13945`
 
@@ -171,8 +232,54 @@
 | `viewport` | `desktop` · `mobile` |
 | `state` | `default` · `selected` · `disabled` |
 
-`Card(Usage)` (`2582:8855`) 안에 `Event Card(Usage)`, `Cart Item(Usage)` 하위 예시가 있습니다.
-→ [../patterns/commerce.md](../patterns/commerce.md)
+#### 사용 가이드 — `Card(Usage)` `2582:8855`
+
+`7712 × 9511` 크기로, 카드 종류별 절을 갖습니다. 각 절의 머리말이 그 카드의 정의입니다.
+
+| 절 | 노드 | 시안 설명 (원문) |
+|---|---|---|
+| **Product Card** | `2582:8859` | 조합에 따라 다양한 형태의 속성이 존재합니다. |
+| **Information Card** | `2613:3493` | 이미지·가격·옵션 정보를 함께 제공하는 카드로, 다양한 프로퍼티가 존재합니다. |
+| **Profile Card** | `2618:4647` | 아바타와 타이틀·서브타이틀로 구성된 카드로, 크기와 상태 프로퍼티가 존재합니다. |
+| **Event Card** | `3476:9796` | Event Card는 **Sphere(스피어)의 정보를 나타내는 카드**로, **스피어 탭의 이벤트 내용**을 나타내는 요소로 사용합니다. |
+| **Cart Item** | `3476:10039` | 장바구니 화면에서 선택한 상품의 정보를 표시하는 카드입니다. 상품 이미지, 상품명, 가격, 수량 조절, 옵션 표시 등의 기능을 포함합니다. |
+
+##### Event Card `3476:9796`
+
+| 섹션 | 시안 설명 (원문) | 값 |
+|---|---|---|
+| **Viewport** | Desktop과 Mobile 뷰포트에 따라 **카드 크기**를 조정합니다. | `Desktop` · `Mobile` |
+| **Status** | 이벤트의 상태(예정/진행 중/종료)에 따라 카드의 시각적 표현이 변경됩니다. | `Upcoming` · `Ongoing` · `Ended` |
+| **Show Subtitle** | 서브타이틀의 표시 여부를 설정합니다. | `True` · `False` |
+
+상태별 표현(프리뷰 실측):
+
+| status | 배지 | 이미지 | 텍스트 |
+|---|---|---|---|
+| `upcoming` | **예정** — 연한 배경 배지 | 기본 | 기본 |
+| `ongoing` | **진행중** — 어두운(검정) 배지 | 밝은 회색 | **날짜가 브랜드 컬러** |
+| `ended` | **종료** — 연한 배지 | **어둡게 딤** | 전체 흐림(disabled 계열) |
+
+날짜는 `202Y.MM.DD — MM.DD` 형식이며 `editor/calendar` 아이콘이 앞에 붙습니다.
+
+> **Sphere(스피어)** 라는 도메인 개념이 이 가이드에서 처음 등장합니다. `[?]` 정의는 시안에 없습니다.
+
+##### Cart Item `3476:10039`
+
+| 섹션 | 시안 설명 (원문) | 값 |
+|---|---|---|
+| **Viewport** | Desktop과 Mobile 뷰포트에 따라 **카드의 레이아웃**이 변경됩니다. | `Desktop` · `Mobile` |
+| **Type** | 상품의 구매 가능 상태에 따라 Default와 Disabled 타입으로 구분됩니다. | `Default` · `Disabled` |
+| **Checked** | 체크박스를 통해 상품의 선택 상태를 나타냅니다. | `True` · `False` |
+
+`Disabled` 는 썸네일에 **SOLD OUT 딤**(= `Thumbnail` 의 `showDimmer`)이 적용되고,
+상품명·가격·옵션·수량 스테퍼가 모두 흐려지며 체크박스가 비활성화됩니다.
+
+> `[?]` 가이드의 `Type`(Default/Disabled)·`Checked` 와 컴포넌트 세트의 베리언트
+> `state=default | selected | disabled` 가 서로 다른 축입니다. `selected` 가 `checked=true` 에
+> 대응하는지 확인이 필요합니다.
+
+→ 화면 조합은 [../patterns/commerce.md](../patterns/commerce.md)
 
 ---
 
@@ -186,7 +293,10 @@
 | 4 | 베리언트 boolean 표기 혼용 — `true/false` vs `True/False` |
 | 5 | 베리언트 값에 한글 사용 (`type=기본`, `Type=대분류`) — 코드 매핑 규칙 필요 |
 | 6 | Thumbnail 프레임의 무의미한 레이어 이름 잔재 |
-| 7 | 각 컴포넌트의 `Description` · `Version Info` · `Develop Info` 본문은 이번 조사에서 읽지 않음(스크린샷 필요) |
+| 7 | 각 컴포넌트의 `Version Info` · `Develop Info` 본문은 미조사 |
+| 8 | `CartItem` 의 `Type`/`Checked`(가이드) ↔ `state`(베리언트) 축 불일치 |
+| 9 | Usage 가이드가 **없는** 컴포넌트: Accordion · Avatar · Carousel · OptionRow · Price · List · Table · Text List |
+| 10 | `Sphere(스피어)` 도메인 용어의 정의 |
 
 ---
 

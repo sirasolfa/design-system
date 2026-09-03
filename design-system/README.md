@@ -29,7 +29,7 @@ NDS(NOVERA Design System) 문서 세트. 진입점은 저장소 루트의 [`READ
 ### patterns — 조합 패턴 `[F]`
 | 문서 | 내용 |
 |---|---|
-| [README.md](patterns/README.md) | Figma "(Usage)" 프레임 목록 |
+| [README.md](patterns/README.md) | `(Usage)` 가이드 10종의 절 구성과 공통 템플릿 |
 | [commerce.md](patterns/commerce.md) | 상품 카드 · 장바구니 · 이벤트 카드 · 검색 |
 
 ### guidelines
@@ -87,6 +87,14 @@ get_screenshot(fileKey=..., nodeId="196:5392", enableBase64Response=true)
   팔레트에서 값이 안 나오는 칸(예: 조사 시점의 `color/blue/500`)은 스크린샷으로 확인했습니다.
 - **레이어 이름이 곧 텍스트 내용**인 경우가 많아, `get_metadata` XML의 `name=` 만 훑어도
   표 본문을 상당 부분 복원할 수 있습니다. 이 문서의 "역할 설명" 문구 다수가 그 경로로 옮겨온 것입니다.
+- **단, 컴포넌트의 `(Usage)` 가이드는 예외입니다.** 레이어 이름이 `Guide` · `Section Title` ·
+  `Description` 같은 껍데기라 `get_metadata` 로는 내용을 읽을 수 없습니다.
+  `get_screenshot`(작은 프레임) 또는 `get_design_context`(텍스트만 필요할 때,
+  `excludeScreenshot=true`)를 써야 합니다.
+- `get_design_context` 응답 끝에는 **Component descriptions** 가 함께 옵니다 — Figma 컴포넌트에
+  달아 둔 용도 설명입니다. 다른 도구로는 나오지 않습니다.
+- **노드 ID는 고정이 아닙니다.** 이 문서를 처음 만든 뒤 몇 시간 만에 `Action Area(Usage)` 의
+  노드 ID가 바뀌었습니다. 문서의 ID는 조회 시점의 스냅샷으로 다루세요.
 - 이 실행 환경에서는 `figma.com` 직접 다운로드가 조직 egress 정책으로 **403** 입니다.
   스크린샷은 `enableBase64Response=true` 로 받아야 합니다(`curl`로는 못 받음).
 - Figma **layout grid(컬럼/거터)** 는 MCP로 노출되지 않습니다. Grid 페이지에서 확정할 수 있는 건

@@ -81,6 +81,31 @@ Foundation 페이지의 `System Conponent` 섹션(`260:1443`)에 이 템플릿�
 
 하위 원자 컴포넌트는 이름 앞에 **`└ `** 를 붙이는 관례를 씁니다 (예: `└ ProductWish-atomic`, `└ Table-row`).
 
+## `(Usage)` 가이드가 있는 컴포넌트 `[F]`
+
+프레임 하단에 사용 규칙을 적은 `(Usage)` 가이드가 붙은 것은 **일부뿐**입니다.
+
+| 있음 | 절 구성 |
+|---|---|
+| Card (Product / Information / Profile / Event / Cart Item) | 카드 종류별 프로퍼티 설명 |
+| Thumbnail | Color · Ratio · Show Dimmer |
+| Label | Text Align · Show Count |
+| Drawer | Anatomy · Spec |
+| Toast | Element Patterns & Types · Behavior · Usage · Design Spec |
+| Bottom Sheet (Action Area) | Button Pair · Button Action Bar · Action Area |
+| Search | State · Spec · Behavior · With Keyboard |
+
+| 없음 |
+|---|
+| Accordion · Avatar · Carousel · OptionRow · Price · List · Table · Text List · Dialog · Tooltip · Snack Bar |
+
+**가이드에는 베리언트 목록에 없는 프로퍼티가 등장합니다**(`showDimmer`, `showCount`, `required`,
+`showSubtitle`, `checked`). Figma의 boolean 프로퍼티로 보이며, 베리언트만 보고 구현하면 누락됩니다.
+→ [content-display.md](content-display.md#컴포넌트-프레임-하단의-usage-가이드-f)
+
+가이드 문구는 레이어 이름에 없어 `get_screenshot` / `get_design_context` 로만 읽힙니다.
+→ [../patterns/README.md](../patterns/README.md)
+
 ---
 
 AI 제안(컴포넌트 API 형태, 우선순위) → [../guidelines/ai-guidelines.md](../guidelines/ai-guidelines.md#components)
