@@ -61,20 +61,21 @@ Label 컴포넌트 자체는 • Content Display 페이지에 있습니다 → [
 
 | 자산 | 위치 | 비고 |
 |---|---|---|
-| ~~`Search(Usage)`~~ | • Overlay 페이지 `1170:5163` | **검색 가이드가 아닙니다** — 아래 참조 |
+| ~~`Search(Usage)`~~ | • Overlay 페이지 `1170:5163` | 검색 가이드가 아니었음. **`BottomSheet(Usage)` 로 개명됨** |
 | `└ OptionRow` | • Content Display 페이지 `3445:9254` | `viewport`, `showOption`, `isDisabled` |
 | `└ Checkbox-atomic` | Card / Bottom Sheet 프레임 안 인스턴스 | Checkbox 원자 컴포넌트가 이미 조합에 쓰이는 중 |
 | `SelectField` | Card(Usage) 안 | 상품 옵션 선택 |
 
 즉 **Checkbox 는 Overview 상 In-progress 이지만, 다른 컴포넌트(CartItem 등) 안에서 이미 인스턴스로 사용 중**입니다.
 
-### ⚠️ `Search(Usage)` 는 검색 가이드가 아닙니다 `[F]`
+### `Search(Usage)` 는 검색 가이드가 아니었습니다 `[F]`
 
-• Overlay 페이지의 `1170:5163` 프레임은 **레이어 이름만 `Search(Usage)`** 이고,
-프레임 안의 제목은 **"Bottom Sheet Usage Guide — 바텀시트(Bottom Sheet)의 사용 예시를 안내합니다."**
-입니다. 프리뷰도 전부 `bottom_sheet` 인스턴스이며 검색 필드는 등장하지 않습니다.
+`1170:5163` 은 **레이어 이름만 `Search(Usage)`** 였고, 내부 제목은
+**"Bottom Sheet Usage Guide — 바텀시트(Bottom Sheet)의 사용 예시를 안내합니다."** 입니다.
+프리뷰도 전부 `bottom_sheet` 인스턴스이며 검색 필드는 등장하지 않습니다.
 
-내용은 [overlay.md](overlay.md#searchusage-는-실제로-bottom-sheet-가이드입니다-f) 에 정리했습니다.
+**2026-10-15 에 `BottomSheet(Usage)` 로 개명**했고, 내용은
+[overlay.md](overlay.md#bottomsheetusage-11705163--bottom-sheet-두-번째-가이드-f) 에 정리했습니다.
 
 **따라서 Inputs 카테고리 13개 컴포넌트에는 Usage 가이드가 하나도 없습니다.**
 `Search` 가 Overview 상 **Done** 인데도 사용 규칙 문서가 없는 상태입니다.
@@ -102,7 +103,7 @@ Label 컴포넌트 자체는 • Content Display 페이지에 있습니다 → [
 | 4 | 에러 메시지·헬퍼 텍스트의 스타일/색 토큰 |
 | 5 | `required` 표시의 시각 규칙(별표 색·위치) |
 | 6 | Checkbox / Radio / Switch 의 사이즈 스케일 |
-| 7 | **Inputs 13종 전부 Usage 가이드 없음** — `Search(Usage)` 는 Bottom Sheet 가이드였음 |
+| 7 | **Inputs 13종 전부 Usage 가이드 없음** — 유일한 후보였던 `Search(Usage)` 가 Bottom Sheet 가이드였음 |
 | 8 | Search 가 Done 인데 사용 규칙 문서가 어디에도 없음 |
 
 ---

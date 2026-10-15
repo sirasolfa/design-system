@@ -4,6 +4,9 @@
 > 이 문서는 **개발이 코드로 옮기기 위해 디자인 확인·보완이 필요한 항목**을 모은 것입니다.
 > 모든 항목에 노드 ID를 붙였습니다. Figma에서 `⌘/` → 노드 ID 붙여넣기로 바로 이동할 수 있습니다.
 
+> **2026-10-15 진행** — B-1(레이어명 `Search(Usage)` → `BottomSheet(Usage)`)은 **개발 측에서 직접 적용 완료**했습니다.
+> 같은 날 확인에서 **Toast 가이드가 새로 작성된 것**(`4493:25180`)도 발견해 아래 E-1 을 정정했습니다.
+
 | 분류 | 건수 | 성격 |
 |---|---|---|
 | [A. 사용 가이드 없음](#a-사용-가이드가-없는-컴포넌트) | 11 + 24 | 신규 작성 요청 |
@@ -36,6 +39,8 @@
 | Text input | Inputs | N/A | 없음 |
 | Search | Inputs | N/A | 없음 |
 | Snackbar | Overlays | 1/27/26 | `1384:7161` |
+
+> Toast(Done, 1/27/26)는 10-15 확인 시점에 가이드가 작성돼 있어 위 목록에서 제외했습니다.
 
 > **Text input / Text area** 는 Change Log 에 높이(56/44/32)와 `state: filled`, `showTrailingIn`
 > 변경만 적혀 있고, state 전체 목록(default/focus/error/disabled)과 에러 메시지 규칙이 없습니다.
@@ -102,8 +107,9 @@ Figma 파일에 페이지가 **4개**(Overview · Foundation · • Content Disp
 
 | 프레임명 | 노드 | 내부 제목 / 부제 | 판정 |
 |---|---|---|---|
-| **`Search(Usage)`** | `1170:5163` | **Bottom Sheet Usage Guide** / 바텀시트(Bottom Sheet)의 사용 예시를 안내합니다. | ❌ **이름 정정 필요** |
+| ~~`Search(Usage)`~~ → **`BottomSheet(Usage)`** | `1170:5163` | **Bottom Sheet Usage Guide** / 바텀시트(Bottom Sheet)의 사용 예시를 안내합니다. | ✅ **개명 완료 (10-15)** |
 | **`Sheet(Usage)`** | `3572:31464` | Guide / **액션 영역(Action Area)과** 바텀시트 높이 규칙의 사용 예시를 안내합니다. | ⚠️ **부제 정정 필요** |
+| `Toast(Usage)` | `4493:25180` | Guide / 토스트(Toast)의 사용 예시를 안내합니다. | ✅ |
 | `Dialog(Usage)` | `4805:36820` | Guide / 다이얼로그(Dialog)의 사용 예시를 안내합니다. | ✅ |
 | `Drawer(Usage)` | `1358:8391` | Drawer Usage Guide / 드로어(Drawer)의 사용 예시를 안내합니다. | ✅ |
 | `Accordion(Usage)` | `4073:12234` | Guide / Accordion 컴포넌트의 속성별 사용법을 안내합니다. | ✅ |
@@ -115,7 +121,7 @@ Figma 파일에 페이지가 **4개**(Overview · Foundation · • Content Disp
 | `Event Card(Usage)` | `3476:9796` | Event Card / Event Card는 Sphere(스피어)의 정보를 나타내는 카드로… | ✅ |
 | `Cart Item(Usage)` | `3476:10039` | Cart Item / 장바구니 화면에서 선택한 상품의 정보를 표시하는 카드입니다. | ✅ |
 
-### B-1. `Search(Usage)` → `BottomSheet(Usage)` 로 개명 요청 ❗
+### B-1. `Search(Usage)` → `BottomSheet(Usage)` ✅ 완료
 
 `1170:5163` (`1600 × 9388`) 은 **이름만 Search** 이고, 내용은 전부 바텀시트입니다.
 
@@ -125,8 +131,12 @@ Figma 파일에 페이지가 **4개**(Overview · Foundation · • Content Disp
 - **검색 필드는 한 번도 등장하지 않습니다**
 
 이 때문에 개발 문서에 한 차례 "Search 가이드"로 잘못 적혔다가 정정했습니다.
-또한 이 프레임은 Bottom Sheet 컴포넌트 **안이 아니라 페이지 최상위**에 떠 있어,
-다른 가이드들과 위치 규칙도 다릅니다. **Bottom Sheet 프레임(`1065:18681`) 안으로 옮겨 주세요.**
+**2026-10-15 에 `BottomSheet(Usage)` 로 개명했습니다.**
+
+**남은 요청** — 이 프레임은 여전히 Bottom Sheet 컴포넌트 **안이 아니라 페이지 최상위**에 떠 있습니다.
+다른 가이드 12개는 모두 해당 컴포넌트 프레임 안에 들어가 있습니다.
+**Bottom Sheet 프레임(`1065:18681`) 안으로 옮겨 주세요.**
+(재배치는 레이아웃에 영향을 줄 수 있어 개발 측에서 임의로 적용하지 않았습니다.)
 
 ### B-2. `Sheet(Usage)` 부제와 내용이 맞지 않음
 
@@ -240,13 +250,18 @@ Change Log `251224` 의 `gray 50→100, 100→150` 이후, 아래 라벨이 옛 
 
 작업 중이라면 그대로 두셔도 됩니다. **개발이 "없는 것"과 "아직인 것"을 구분하려는 목적**입니다.
 
-### E-1. Toast 프레임이 비어 있음
+### E-1. Toast 가이드가 재작성됐습니다 — 내용 확인 요청 ✅→🔄
 
-`1368:9769` (`1600 × 6349`) 에 **자식 노드가 하나도 없습니다.**
-이전에는 `Toast(Usage)`(`1368:10031`)가 있었고 절 구성이
-`Element Patterns & Types` · `Behavior` · `Usage` · `Design Spec` 이었습니다.
+조사 도중 Toast 프레임(`1368:9769`)이 잠시 비어 있었는데, 같은 날 다시 확인하니
+**`Toast(Usage)` `4493:25180`** (`1440 × 5193`) 가 새로 들어와 있었습니다.
 
-Toast 는 Overview 상 **Done**(1/27/26) 이라 개발 착수 대상입니다. 재작업 중인지 알려주세요.
+| | 이전 (`1368:10031`) | 현재 (`4493:25180`) |
+|---|---|---|
+| 제목 | Guide / 토스트(Toast)의 사용 예시를 안내합니다. | 동일 |
+| 첫 절 | `Element Patterns & Types` | **`Overview`** |
+
+**절 구성이 바뀌어 개발 문서가 구버전 기준입니다.** 재작성이 끝난 상태인지 알려주시면
+다시 읽어 문서를 갱신하겠습니다.
 
 ### E-2. `Sheet(Usage)` > Height 의 세부 규칙이 투명도 50%
 

@@ -26,7 +26,7 @@ Overview 페이지는 6개 카테고리, **총 50개 컴포넌트**를 나열합
 | Overview | `1183:7436` | 인벤토리 표 + Change Log 섹션 |
 | Foundation | `0:1` | 토큰 |
 | • Content Display | `1595:11126` | 컴포넌트 상세 11개 |
-| • Overlay | `1595:11129` | 컴포넌트 상세 6개 + Bottom Sheet 가이드(프레임명 `Search(Usage)`) |
+| • Overlay | `1595:11129` | 컴포넌트 상세 6개 + 페이지 최상위 `BottomSheet(Usage)` |
 
 즉 **Navigation · Button · Inputs · Indicator & Status 카테고리의 상세 프레임은 이 파일에 없습니다.**
 해당 문서들은 Overview의 상태표와 Change Log에서 읽어낸 사실만 담고 있습니다.
@@ -49,12 +49,13 @@ Overlay 쪽도 비슷합니다.
 
 | Overview 표 (`1635:14884`) | • Overlay 페이지 (`1595:11129`) |
 |---|---|
-| Popup, Dialog, Drawer, Bottom sheet, Toast, Tooltip, Snackbar, System message, Pulldown menu | Dialog, Drawer, Bottom Sheet, Toast, Tooltip, Snack Bar, *(+ `Search(Usage)` — 실제 내용은 Bottom Sheet)* |
+| Popup, Dialog, Drawer, Bottom sheet, Toast, Tooltip, Snackbar, System message, Pulldown menu | Dialog, Drawer, Bottom Sheet, Toast, Tooltip, Snack Bar, *(+ 최상위 `BottomSheet(Usage)`)* |
 
 - Overview에만: `Popup`, `System message`, `Pulldown menu`
 - 이름 표기 차이: `Snackbar` ↔ `Snack Bar`, `Bottom sheet` ↔ `Bottom Sheet`
-- `Search(Usage)`(`1170:5163`)는 **이름만 Search** 이고 내용은 Bottom Sheet 사용 가이드입니다.
-  → [overlay.md](overlay.md#searchusage-는-실제로-bottom-sheet-가이드입니다-f)
+- `1170:5163` 은 이름이 `Search(Usage)` 였으나 내용이 Bottom Sheet 가이드여서
+  **2026-10-15 `BottomSheet(Usage)` 로 개명**했습니다.
+  → [overlay.md](overlay.md#bottomsheetusage-11705163--bottom-sheet-두-번째-가이드-f)
 
 ---
 
@@ -96,12 +97,12 @@ Foundation 페이지의 `System Conponent` 섹션(`260:1443`)에 이 템플릿�
 | Label | `1621:17816` | Text Align · Show Count |
 | **Dialog** | `4805:36820` | height (최대 높이 80% 규칙) |
 | Drawer | `1358:8391` | Anatomy · Spec |
-| Bottom Sheet | `3572:31464` / `1170:5163` | ① Sheet(Usage): Button Pair · Button Action Bar · Action Area<br>② State · Spec · Behavior · With Keyboard (프레임명 `Search(Usage)`) |
-| Toast | — | 프레임이 **현재 비어 있음**(재작업 중으로 보임) |
+| Bottom Sheet | `3572:31464` / `1170:5163` | ① `Sheet(Usage)`: Height 규칙<br>② `BottomSheet(Usage)`: State · Spec · Behavior · With Keyboard |
+| Toast | `4493:25180` | Overview … *(절 구성이 바뀌어 재조사 필요)* |
 
 | 없음 |
 |---|
-| Avatar · Carousel · List · Table · Text List · Tooltip · Snack Bar · **Inputs 13종 전부** |
+| Avatar · Carousel · List · Table · Text List · Tooltip · Snack Bar · Popup · System message · Pulldown menu · **Inputs 13종 전부** |
 
 **가이드에는 베리언트 목록에 없는 프로퍼티가 등장합니다** — `showDimmer`, `showCount`,
 `showRequired`, `showSubtitle`, `checked`, `isDiscount`, `optionName`, `price`, `discountPrice`,

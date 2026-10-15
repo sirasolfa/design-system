@@ -156,7 +156,7 @@ CartItem (viewport=desktop|mobile, state=default|selected|disabled)
 ## 6. 검색
 
 Overview 상 `Inputs > Search` 는 **Done** 이지만, **사용 가이드는 없습니다.**
-`Search(Usage)` 라는 프레임이 있으나 내용은 Bottom Sheet 가이드였습니다.
+`Search(Usage)` 라는 프레임이 있었으나 내용이 Bottom Sheet 가이드여서 `BottomSheet(Usage)` 로 개명했습니다.
 → [../components/inputs.md](../components/inputs.md) · [../components/overlay.md](../components/overlay.md)
 
 ---

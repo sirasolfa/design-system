@@ -113,8 +113,8 @@
 | `Overlay` | `type=bottom` |
 
 > **이 컴포넌트에는 가이드가 두 개 있습니다.** 아래 `Sheet(Usage)` 외에,
-> 페이지 하단의 `Search(Usage)` 프레임이 실제로는 Bottom Sheet 가이드입니다.
-> → [위 절 참조](#searchusage-는-실제로-bottom-sheet-가이드입니다-f)
+> 페이지 최상위의 `BottomSheet(Usage)` 가 시트 자체의 상태·동작을 다룹니다.
+> → [아래 절 참조](#bottomsheetusage-11705163--bottom-sheet-두-번째-가이드-f)
 
 ### 사용 가이드 — `Sheet(Usage)` `3572:31464` (이전 이름 `Action Area(Usage)`)
 
@@ -146,7 +146,7 @@
 > - 812px 화면 예시: 최소 200px / 최대 649.6px(약 650px).
 
 > **Dialog 와 같은 80% 규칙**입니다. 앞서 "Bottom Sheet 90% vs Dialog 80%" 로 적었던 것은
-> 이 Height 절이 생기기 전 `Search(Usage)` 의 `Max Height 90%` 표기를 따른 것이었습니다.
+> 이 Height 절이 생기기 전 `BottomSheet(Usage)` 의 `Max Height 90%` 표기를 따른 것이었습니다.
 > 두 수치가 파일 안에 공존합니다. → [아래 확인 필요](#확인-필요)
 
 ---
@@ -201,11 +201,12 @@
 | `Toast/Text` | `Icon=True \| False`, `Line=Single \| Multi` |
 | `Toast/Icon` | `Option=Check mark \| Loading \| Exclamation Mark \| Custom` |
 
-> ⚠️ **현재 Toast 프레임(`1368:9769`)은 자식이 하나도 없는 빈 프레임입니다** (1600×6349).
-> 아래 내용은 이전 조사 시점(`Toast(Usage)` `1368:10031`)의 기록이며, 지금은 조회되지 않습니다.
-> 재작업 중인 것으로 보입니다.
+> ℹ️ **2026-10-15 재확인** — Toast 가이드는 **`4493:25180` 으로 새로 만들어져 있습니다**(1440×5193,
+> Toast 프레임 안). 제목은 `Guide / 토스트(Toast)의 사용 예시를 안내합니다.` 이고 첫 절은 **`Overview`** 로,
+> 아래 기록(`1368:10031`)의 절 구성(`Element Patterns & Types` 등)과 다릅니다.
+> **아래 내용은 구버전이며 재조사가 필요합니다.** `[?]`
 
-### 사용 가이드 — `Toast(Usage)` `1368:10031` (현재 조회 불가)
+### 사용 가이드 — `Toast(Usage)` (구버전 `1368:10031` 기록)
 
 > **Guide** — 토스트(Toast)의 사용 예시를 안내합니다.
 
@@ -252,20 +253,24 @@
 
 `Link` · `Item` · `Lable`(오타 — `Label`) · `direction/chevron` 아이콘으로 구성됩니다.
 
-## ⚠️ `Search(Usage)` 는 실제로 **Bottom Sheet** 가이드입니다 `[F]`
+## `BottomSheet(Usage)` `1170:5163` — Bottom Sheet 두 번째 가이드 `[F]`
 
-• Overlay 페이지의 `1440 × 9388` 프레임은 **레이어 이름이 `Search(Usage)`** 이지만,
-프레임 안의 제목은 다음과 같습니다.
+> **2026-10-15 개명 완료** — 프레임 이름이 `Search(Usage)` 였으나 내용과 맞지 않아
+> **`BottomSheet(Usage)` 로 변경**했습니다.
+
+`1600 × 9388` 프레임이며, 안의 제목은 다음과 같습니다.
 
 > # Bottom Sheet Usage Guide
 > 바텀시트(Bottom Sheet)의 사용 예시를 안내합니다.
 
 프리뷰도 전부 `bottom_sheet` 인스턴스(`dimmer` + `open` → `bottom_sheet__atomic` ·
 `content_area` · `button_area`)이며, 검색 필드는 한 번도 나오지 않습니다.
-**레이어 이름이 잘못 붙은 것으로 보입니다.** 내용 기준으로는 아래 [Bottom Sheet](#bottom-sheet-106518681) 의
-사용 가이드로 읽어야 합니다.
 
-### Bottom Sheet 사용 가이드 — `1170:5163` (프레임명 `Search(Usage)`)
+> `[?]` 이 프레임은 아직 **페이지 최상위**에 있습니다. 다른 가이드는 모두 해당 컴포넌트 프레임
+> 안에 들어가 있으므로, [Bottom Sheet](#bottom-sheet-106518681) 프레임 안으로 옮기는 편이 일관됩니다.
+> 재배치는 레이아웃에 영향을 줄 수 있어 적용하지 않았습니다.
+
+### 절 구성
 
 #### 1. State `1170:5169`
 
@@ -337,11 +342,12 @@
 | 7 | 각 컴포넌트의 `Version Info` 본문 미조사 |
 | 8 | `Sheet(Usage)` 부제는 Action Area 를 언급하는데 내용에는 Height 절만 있음 |
 | 9 | Toast 가이드의 `Behavior`·`Usage`·`Design Spec` 설명 문장이 비어 있음 |
-| 10 | Usage 가이드가 **없는** 오버레이: Tooltip · Snack Bar |
-| 11 | `Search(Usage)` 프레임명이 내용(Bottom Sheet)과 불일치 — 이름 정정 필요 |
-| 13 | Toast 프레임이 비어 있음 — 재작업 중인지, 가이드가 사라진 것인지 |
+| 10 | Usage 가이드가 **없는** 오버레이: Tooltip · Snack Bar · Popup · System message · Pulldown menu |
+| 11 | ~~`Search(Usage)` 프레임명 불일치~~ → **2026-10-15 `BottomSheet(Usage)` 로 개명 완료** |
+| 13 | Toast 가이드가 `4493:25180` 으로 새로 작성됨 — 절 구성이 바뀌어 **재조사 필요** |
 | 14 | `Sheet(Usage)` 개명·축소 후 내용 재확인 |
-| 15 | Bottom Sheet 가이드가 **두 개**(`Sheet(Usage)` + 프레임명 `Search(Usage)`) — 통합 필요 |
+| 15 | Bottom Sheet 가이드가 **두 개**(`Sheet(Usage)` + `BottomSheet(Usage)`) — 통합 여부 결정 필요 |
+| 16 | `BottomSheet(Usage)` 가 페이지 최상위에 있음 — Bottom Sheet 프레임 안으로 이동 권장 |
 | 12 | 바텀시트 최대 높이가 파일 안에서 **90%**(`Search(Usage)` Spec)와 **80%**(`Sheet(Usage)` Height)로 갈림 |
 
 ---

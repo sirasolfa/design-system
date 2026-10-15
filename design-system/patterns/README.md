@@ -24,9 +24,9 @@ NDS는 "패턴"이라는 이름의 별도 페이지를 두지 않습니다. 대�
 | `Dialog(Usage)` | `4805:36820` | 1440×1400 | height (최대 높이 80%) |
 | `Label(Usage)` | `1621:17816` | 1440×1213 | Text Align · Show Count |
 | `Drawer(Usage)` | `1358:8391` | 1440×2296 | Anatomy · Spec |
-| ~~`Toast(Usage)`~~ | — | — | **프레임이 현재 비어 있음** (재작업 중으로 보임) |
+| `Toast(Usage)` | `4493:25180` | 1440×5193 | Overview … *(2026-10-15 재작성됨, 재조사 필요)* |
 | `Sheet(Usage)` | `3572:31464` | 1440×1637 | Button Pair · Button Action Bar · Action Area<br>*(이전 이름 `Action Area(Usage)`)* |
-| `Search(Usage)` ⚠️ | `1170:5163` | 1440×9388 | **실제로는 Bottom Sheet 가이드** — State · Spec · Behavior · With Keyboard |
+| `BottomSheet(Usage)` | `1170:5163` | 1600×9388 | State · Spec · Behavior · With Keyboard<br>*(이전 이름 `Search(Usage)` — 2026-10-15 개명)* |
 
 **Usage 가이드가 없는 컴포넌트** — Avatar · Carousel · List · Table · Text List · Tooltip ·
 Snack Bar, 그리고 **Inputs 카테고리 13종 전부**.
@@ -35,9 +35,8 @@ Snack Bar, 그리고 **Inputs 카테고리 13종 전부**.
 > 개명, `Dialog(Usage)` · `Accordion(Usage)` · `Price(Usage)` · `OptionRow(Usage)` 신설,
 > Toast 프레임 비워짐이 일어났습니다. 이 표는 **2026-10-15 기준 스냅샷**입니다.
 
-> ⚠️ **프레임 이름을 믿지 마세요.** `Search(Usage)` 는 레이어 이름만 Search 이고,
-> 프레임 안 제목은 "Bottom Sheet Usage Guide" 입니다. 프리뷰도 전부 `bottom_sheet` 입니다.
-> 가이드를 식별할 때는 프레임 이름이 아니라 **Title Container 의 Guide/Subtitle 텍스트**를 확인해야 합니다.
+> ⚠️ **가이드를 식별할 때는 프레임 이름이 아니라 Title Container 의 Guide/Subtitle 텍스트를 확인하세요.**
+> `Search(Usage)` 가 실제로는 Bottom Sheet 가이드였던 사례가 있었습니다(2026-10-15 개명 완료).
 
 ## Usage 프레임의 공통 구성 `[F]`
 
@@ -74,7 +73,7 @@ Snack Bar, 그리고 **Inputs 카테고리 13종 전부**.
 
 | # | 항목 |
 |---|---|
-| 1 | `Search(Usage)` 프레임명이 내용(Bottom Sheet)과 불일치 — Figma 쪽 이름 정정 필요 |
+| 1 | ~~`Search(Usage)` 프레임명 불일치~~ → **개명 완료**. 단 아직 페이지 최상위에 있어 이동 권장 |
 | 2 | 패턴 레벨의 문서(빈 상태·에러·로딩 처리 규칙)는 시안에 없음 |
 | 3 | `Typography(Usage)` 의 각 레벨별 "언제 쓰는가" 설명은 예시 문구로만 제시되고 규칙 문장은 없음 |
 | 4 | Toast 가이드 3개 절의 Description 이 비어 있음 |
