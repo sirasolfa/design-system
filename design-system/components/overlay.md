@@ -201,35 +201,71 @@
 | `Toast/Text` | `Icon=True \| False`, `Line=Single \| Multi` |
 | `Toast/Icon` | `Option=Check mark \| Loading \| Exclamation Mark \| Custom` |
 
-> ℹ️ **2026-10-15 재확인** — Toast 가이드는 **`4493:25180` 으로 새로 만들어져 있습니다**(1440×5193,
-> Toast 프레임 안). 제목은 `Guide / 토스트(Toast)의 사용 예시를 안내합니다.` 이고 첫 절은 **`Overview`** 로,
-> 아래 기록(`1368:10031`)의 절 구성(`Element Patterns & Types` 등)과 다릅니다.
-> **아래 내용은 구버전이며 재조사가 필요합니다.** `[?]`
-
-### 사용 가이드 — `Toast(Usage)` (구버전 `1368:10031` 기록)
+### 사용 가이드 — `Toast(Usage)` `4493:25180` `[F]`
 
 > **Guide** — 토스트(Toast)의 사용 예시를 안내합니다.
 
-`1280 × 5892` 로 이 파일에서 가장 상세한 가이드 중 하나이며, 4개 절로 나뉩니다.
+`1440 × 5193`. **이 파일에서 가장 구체적인 가이드**로, 구현에 필요한 수치가 대부분 적혀 있습니다.
+2026-10-15 에 전면 재작성됐습니다(이전 `1368:10031` 의 `Element Patterns & Types` 구성은 폐기).
 
-| 절 | 하위 항목 |
+#### 1. Overview
+
+> 토스트(Toast)는 화면 **하단**에 잠시 나타났다가 자동으로 사라지는 피드백 UI입니다.
+> 사용자의 작업 흐름을 방해하지 않으면서 결과를 전달합니다.
+
+> ⚠️ **같은 가이드 안에서 모순됩니다.** Overview 는 "화면 하단", 아래 Position 절은
+> "화면 **상단** 중앙에 고정" 이라고 합니다. Position 절이 수치까지 갖춘 최신 내용으로 보입니다.
+> → [확인 필요](#확인-필요)
+
+##### 세부 — **TBD(투명도 50%)** `[?]`
+
+> - 자동으로 사라지는 비침투적(Non-intrusive) 알림
+> - 별도의 닫기 동작 없이도 소멸 (`showClose` 로 수동 닫기 가능)
+> - 화면 상단 중앙에 배치 권장
+> - 표시 시간: 일반 **3초**, 긴 메시지 **5초** 권장
+
+#### 2. Spec
+
+> 토스트(Toast)의 구조와 속성을 정의합니다.
+
+**Anatomy** — 4개 요소
+
+| 요소 | 설명 |
 |---|---|
-| **Element Patterns & Types** | `Postition` ※오타 · `Number of Line` |
-| **Behavior** | `Appear and Disappear without Loading` · `Appear and Disappear with Loading` |
-| **Usage** | `Consider Attention Level` |
-| **Design Spec** | `Placement` (Center / Bottom) · `Resizing` (Icon Toast / Text Toast) |
+| `Icon` | 상태를 시각적으로 전달하는 아이콘 (**16×16**) |
+| `Message` | 사용자에게 전달할 피드백 메시지 |
+| `Close` | 수동 닫기 버튼 (**선택**, 16×16) |
+| `Container` | `inverse-strong` 배경, `overlay` 그림자, `rounded/md` |
 
-명시된 규칙:
+**Variants · Show Icon · Show Close** — `showIcon` / `showClose` 로 아이콘·닫기 버튼 노출을 제어합니다.
 
-- **Center** — 센터 배치 옵션을 선택하면 아이콘과 토스트 메시지가 **화면의 정중앙에 항상 표시**됩니다.
-- **Bottom** — `BottomNavigation`(홈 · 카테고리 · 좋아요 · 마이) 위에 얹혀 표시됩니다.
-- 텍스트 길이 기준 예시 문구: **"Text Toast Single Line 최대 스무 자 입력"**
+**Position**
 
-`Toast Case Icons` / `Toast Case Labels` 대응표와 로딩 표현용 레이어가 함께 있습니다
-(`Loading Cirlce` — 오타, `Circle`).
+> Toast는 화면 **상단 중앙에 고정**(`position: fixed`)되어 표시됩니다. Desktop에서는 GNB 하단 12px,
+> Mobile에서는 Top Nav 하단 8px 아래에 위치하며, **띠배너 유무에 따라 top 값이 조정**됩니다.
 
-> `[?]` 세 절(`Behavior` · `Usage` · `Design Spec`)의 Description 텍스트 노드는 **비어 있습니다.**
-> 절 제목만 있고 설명 문장이 아직 작성되지 않았습니다.
+| 항목 | Desktop | Mobile |
+|---|---|---|
+| 수평 정렬 | 화면 중앙 (center) | 화면 중앙 (center) |
+| 수직 기준 | 띠배너 + GNB 하단에서 **12px** 아래 | 띠배너 + Top Nav 하단에서 **8px** 아래 |
+| CSS 포지션 | `position: fixed` | `position: fixed` |
+| `top` (띠배너 있을 때) | **133px** (띠배너 40 + GNB 81 + 여백 12) | **96px** (띠배너 36 + TopNav 52 + 여백 8) |
+| `top` (띠배너 없을 때) | **93px** (GNB 81 + 여백 12) | **60px** (TopNav 52 + 여백 8) |
+| `z-index` | 최상위 (**모달보다 위**) | 최상위 |
+
+**Interaction**
+
+> Toast는 아래에서 위로 **20px 슬라이드**하며 페이드 인으로 등장하고, **3~5초**간 유지된 후
+> 위로 20px 이동하며 페이드 아웃으로 퇴장합니다.
+> 등장과 퇴장 모두 **0.6초**간 `cubic-bezier(0.16, 1, 0.3, 1)` 이징이 적용됩니다.
+
+이 파일에서 **이징 곡선과 지속 시간이 명시된 유일한 컴포넌트**입니다.
+
+#### 3. Usage
+
+> 토스트(Toast)의 올바른 사용 방법을 안내합니다.
+
+`Do` / `Don't` 두 절로 예시를 보여줍니다. `[?]` 각 예시의 문구는 미조사입니다.
 
 ## Tooltip `1600:13434` — 베리언트가 가장 많음
 
@@ -341,10 +377,10 @@
 | 6 | Dialog "화면 높이 20% 여백" 규칙이 모바일에도 동일 적용되는지 |
 | 7 | 각 컴포넌트의 `Version Info` 본문 미조사 |
 | 8 | `Sheet(Usage)` 부제는 Action Area 를 언급하는데 내용에는 Height 절만 있음 |
-| 9 | Toast 가이드의 `Behavior`·`Usage`·`Design Spec` 설명 문장이 비어 있음 |
+| 9 | **Toast Overview 의 "화면 하단" ↔ Position 의 "화면 상단 중앙" 모순** |
 | 10 | Usage 가이드가 **없는** 오버레이: Tooltip · Snack Bar · Popup · System message · Pulldown menu |
 | 11 | ~~`Search(Usage)` 프레임명 불일치~~ → **2026-10-15 `BottomSheet(Usage)` 로 개명 완료** |
-| 13 | Toast 가이드가 `4493:25180` 으로 새로 작성됨 — 절 구성이 바뀌어 **재조사 필요** |
+| 13 | Toast `Usage` 절의 Do / Don't 예시 문구 미조사 |
 | 14 | `Sheet(Usage)` 개명·축소 후 내용 재확인 |
 | 15 | Bottom Sheet 가이드가 **두 개**(`Sheet(Usage)` + `BottomSheet(Usage)`) — 통합 여부 결정 필요 |
 | 16 | `BottomSheet(Usage)` 가 페이지 최상위에 있음 — Bottom Sheet 프레임 안으로 이동 권장 |

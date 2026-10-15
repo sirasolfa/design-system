@@ -14,7 +14,7 @@ NDS는 "패턴"이라는 이름의 별도 페이지를 두지 않습니다. 대�
 | Usage 프레임 | 노드 | 크기 | 절 구성 |
 |---|---|---|---|
 | `Typography(Usage)` | `163:998` | 1600×7380 | Display · Title · Heading · Body · Action · Label · Caption |
-| `Card(Usage)` | `2582:8855` | 7712×9511 | Product Card · Information Card · Profile Card · Event Card · Cart Item |
+| `Card(Usage)` | `2582:8855` | 7712×9598 | Product Card(8절) · Information Card(6절) · Profile Card(4절) · Event Card(3절) · Cart Item(5절) |
 | ├ `Event Card(Usage)` | `3476:9796` | 1440×1946 | Viewport · Status · Show Subtitle |
 | └ `Cart Item(Usage)` | `3476:10039` | 1440×2652 | Viewport · Type · Checked |
 | `Thumbnail(Usage)` | `2980:8714` | 1440×2020 | Color · Ratio · Show Dimmer |
@@ -22,9 +22,9 @@ NDS는 "패턴"이라는 이름의 별도 페이지를 두지 않습니다. 대�
 | `Price(Usage)` | `4703:13314` | 1602×2710 | Type · Size · Currency · Discout · Price · Discount Price · Original Price |
 | `OptionRow(Usage)` | `4726:13681` | 1310×— | Show Option · Is Discount · Is Disabled · Option Name |
 | `Dialog(Usage)` | `4805:36820` | 1440×1400 | height (최대 높이 80%) |
-| `Label(Usage)` | `1621:17816` | 1440×1213 | Text Align · Show Count |
+| `Label(Usage)` | `1621:17816` | 1440×2571 | Size · Color · Text Align · Show Count · Show Required · Text |
 | `Drawer(Usage)` | `1358:8391` | 1440×2296 | Anatomy · Spec |
-| `Toast(Usage)` | `4493:25180` | 1440×5193 | Overview … *(2026-10-15 재작성됨, 재조사 필요)* |
+| `Toast(Usage)` | `4493:25180` | 1440×5193 | Overview · Spec(Anatomy·Variants·Show Icon·Show Close·Position·Interaction) · Usage(Do/Don't) |
 | `Sheet(Usage)` | `3572:31464` | 1440×1637 | Button Pair · Button Action Bar · Action Area<br>*(이전 이름 `Action Area(Usage)`)* |
 | `BottomSheet(Usage)` | `1170:5163` | 1600×9388 | State · Spec · Behavior · With Keyboard<br>*(이전 이름 `Search(Usage)` — 2026-10-15 개명)* |
 
@@ -76,7 +76,7 @@ Snack Bar, 그리고 **Inputs 카테고리 13종 전부**.
 | 1 | ~~`Search(Usage)` 프레임명 불일치~~ → **개명 완료**. 단 아직 페이지 최상위에 있어 이동 권장 |
 | 2 | 패턴 레벨의 문서(빈 상태·에러·로딩 처리 규칙)는 시안에 없음 |
 | 3 | `Typography(Usage)` 의 각 레벨별 "언제 쓰는가" 설명은 예시 문구로만 제시되고 규칙 문장은 없음 |
-| 4 | Toast 가이드 3개 절의 Description 이 비어 있음 |
+| 4 | Toast `Usage` 절의 Do / Don't 예시 문구 미조사 |
 | 5 | `Action Area(Usage)` 가 두 벌 존재 (`3572:31464` / `3261:4202`) |
 | 6 | Usage 가이드가 없는 컴포넌트 11종의 사용 규칙 |
 

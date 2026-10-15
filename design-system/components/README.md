@@ -90,15 +90,15 @@ Foundation 페이지의 `System Conponent` 섹션(`260:1443`)에 이 템플릿�
 | 있음 | 노드 | 절 구성 |
 |---|---|---|
 | **Accordion** | `4073:12234` | Type · Size · Expand · Show Leading Icon · Show Body Text · Show Badge · Show Top/Bottom Divider · Show Sub Items · addSubRow · addSubAccordion (10절) |
-| Card (Product / Information / Profile / Event / Cart Item) | `2582:8855` | 카드 종류별 프로퍼티 설명 |
+| Card (Product / Information / Profile / Event / Cart Item) | `2582:8855` | 카드 5종 × 프로퍼티별 하위 절 (총 26절) |
 | **Price** | `4703:13314` | Type · Size · Currency · Discout · Price · Discount Price · Original Price |
 | **OptionRow** | `4726:13681` | Show Option · Is Discount · Is Disabled · Option Name |
 | Thumbnail | `2980:8714` | Color · Ratio · Show Dimmer |
-| Label | `1621:17816` | Text Align · Show Count |
+| Label | `1621:17816` | Size · Color · Text Align · Show Count · Show Required · Text |
 | **Dialog** | `4805:36820` | height (최대 높이 80% 규칙) |
 | Drawer | `1358:8391` | Anatomy · Spec |
 | Bottom Sheet | `3572:31464` / `1170:5163` | ① `Sheet(Usage)`: Height 규칙<br>② `BottomSheet(Usage)`: State · Spec · Behavior · With Keyboard |
-| Toast | `4493:25180` | Overview … *(절 구성이 바뀌어 재조사 필요)* |
+| Toast | `4493:25180` | Overview · Spec(Anatomy·Position·Interaction 등) · Usage(Do/Don't) — **수치가 가장 구체적** |
 
 | 없음 |
 |---|
@@ -107,7 +107,8 @@ Foundation 페이지의 `System Conponent` 섹션(`260:1443`)에 이 템플릿�
 **가이드에는 베리언트 목록에 없는 프로퍼티가 등장합니다** — `showDimmer`, `showCount`,
 `showRequired`, `showSubtitle`, `checked`, `isDiscount`, `optionName`, `price`, `discountPrice`,
 `originalPrice`, 그리고 Accordion 의 `showLeadingIcon`·`showBodyTxt`·`showBadge`·
-`showTopDivider`·`showBottomDivider`·`showSubItems` + Slot 2종.
+`showTopDivider`·`showBottomDivider`·`showSubItems` + Slot 2종, Card 계열의 `showImageBadge`·
+`showBadge`·`showLabel`·`textLines`·`currency`·`showStepper`·`showCoupon`·`showAvatar`.
 Figma의 boolean / 텍스트 / Instance Swap / Slot 프로퍼티이며, 베리언트만 보고 구현하면 누락됩니다.
 **Accordion 은 베리언트 3개 뒤에 프로퍼티가 8개 더 있습니다.**
 → [content-display.md](content-display.md#컴포넌트-프레임-하단의-usage-가이드-f)

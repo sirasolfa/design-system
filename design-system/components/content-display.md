@@ -49,6 +49,10 @@ Usage 가이드에는 등장하는 프로퍼티가 있습니다. Figma의 **bool
 | Accordion | `type`, `size`, `expand` | **`showLeadingIcon`**(+`└ leadingIcon` Instance Swap), **`showBodyTxt`**, **`showBadge`**, **`showTopDivider`**, **`showBottomDivider`**, **`showSubItems`**, Slot `addSubRow`, Slot `addSubAccordion` |
 | Price | `type`, `size`, `currency`, `discout` | **`price`**, **`discountPrice`**, **`originalPrice`** (텍스트 프로퍼티) |
 | OptionRow | `viewport`, `showOption`, `isDisabled` | **`isDiscount`**, **`optionName`** |
+| ProductCard | `viewport` | **`showImageBadge`**, **`showBadge`**, **`showLabel`**, **`discount`**, **`textLines`**, **`currency`** |
+| InfoCard | `viewport`, `isDiscount`, `isOverseas` | **`showStepper`**, **`showCoupon`** |
+| ProfileCard | `size`, `state` | **`showAvatar`**, **`showSubtitle`** |
+| CartItem *(Slot)* | — | Slot **`addOptionRow`** |
 
 Accordion 은 베리언트 3개 뒤에 **boolean 6개 + Slot 2개**가 더 있습니다.
 베리언트 목록만 보면 10개 중 3개만 알게 됩니다.
@@ -196,14 +200,26 @@ Figma 컴포넌트 설명(`3436:8388`):
 
 > **Guide** — 레이블(Label)의 사용 예시를 안내합니다.
 
-| 섹션 | 뷰포트 칩 | 시안 설명 (원문) |
-|---|---|---|
-| **Text Align** | Desktop | 레이블 텍스트의 정렬 방향을 설정합니다. left, center, right 옵션을 지원합니다. |
-| **Show Count** | — | *(설명 문장 없음)* |
+2026-10-15 에 **6개 절로 보강**됐습니다(1213 → 2571px).
 
-`Show Count` 프리뷰는 `레이블 0 *` 형태로, **레이블 텍스트 + 카운트 숫자 + 필수 표시(`*`)** 를
-함께 보여줍니다. 필수 표시는 빨간색이며 Change Log `260204`의 `required` 항목과 이어집니다.
-사이즈 4단계(`lg`/`md`/`sm`/`xs`)를 행으로 나열합니다.
+| 절 | 시안 설명 (원문) |
+|---|---|
+| **Size** | 사용 맥락에 따라 `lg`, `md`, `sm`, `xs` 크기를 선택합니다. |
+| **Color** | 정보 위계에 따라 `primary`, `secondary`, `tertiary` 색상을 사용합니다. |
+| **Text Align** | 레이블의 정렬 방향을 `left`, `center`, `right` 중에서 선택합니다. |
+| **Show Count** | 글자 수 정보가 필요할 때 `showCount` 를 사용합니다. **true 상태를 먼저 배치합니다.** |
+| **Show Required** | 필수 입력 항목에는 `showRequired` 를 사용합니다. **true 상태를 먼저 배치합니다.** |
+| **Text** | `label` 텍스트 속성으로 맥락에 맞는 명확한 이름을 제공합니다. |
+
+필수 표시(`*`)는 `color/text/status/negative` 입니다. Change Log `260204` 의 `required` 항목과 이어집니다.
+
+Figma 컴포넌트 설명(`225:1969`):
+> 특정 개체에 대한 간략한 설명을 나태내는 요소 ※오타
+> 1. 폼 필드, 데이터 항목 등에 사용합니다.
+> 2. `textAlign` 사용 시, W는 fill로 사용합니다.
+
+> `[?]` 가이드는 텍스트 속성을 **`label`** 이라 부르는데, 코드 출력에서는 **`text`** 로 나옵니다.
+> `color` 축(primary/secondary/tertiary)도 베리언트 목록에는 없습니다.
 
 ### List `1621:15994`
 
@@ -315,13 +331,52 @@ Figma 컴포넌트 설명(`3436:8388`):
 
 `7712 × 9511` 크기로, 카드 종류별 절을 갖습니다. 각 절의 머리말이 그 카드의 정의입니다.
 
-| 절 | 노드 | 시안 설명 (원문) |
-|---|---|---|
-| **Product Card** | `2582:8859` | 조합에 따라 다양한 형태의 속성이 존재합니다. |
-| **Information Card** | `2613:3493` | 이미지·가격·옵션 정보를 함께 제공하는 카드로, 다양한 프로퍼티가 존재합니다. |
-| **Profile Card** | `2618:4647` | 아바타와 타이틀·서브타이틀로 구성된 카드로, 크기와 상태 프로퍼티가 존재합니다. |
-| **Event Card** | `3476:9796` | Event Card는 **Sphere(스피어)의 정보를 나타내는 카드**로, **스피어 탭의 이벤트 내용**을 나타내는 요소로 사용합니다. |
-| **Cart Item** | `3476:10039` | 장바구니 화면에서 선택한 상품의 정보를 표시하는 카드입니다. 상품 이미지, 상품명, 가격, 수량 조절, 옵션 표시 등의 기능을 포함합니다. |
+`7712 × 9598`. 5종 카드를 각각 절로 나누고, 그 아래 프로퍼티별 하위 절을 둡니다.
+
+##### Product Card
+> 조합에 따라 다양한 형태의 속성이 존재합니다.
+
+| 하위 절 | 시안 설명 (원문) |
+|---|---|
+| **Maximum Options** | 모든 옵션을 활성화했을 때의 최대 구성 예시입니다. 이미지 내 Badge · Wishlist 버튼, 브랜드명 · 상품명 · 할인 가격 · **상태 Badge(max 4개)** 가 동시 노출되며, 반응형 뷰포트에서 콘텐츠가 가장 많을 때에도 레이아웃이 안정적으로 유지되는지 확인할 수 있습니다. |
+| **Viewport** | Desktop과 Mobile 뷰포트에 따라 카드 크기를 조정합니다. **Mobile viewport의 default width는 140px입니다.** |
+| **Show Image Badge** | 이미지 위에 표시되는 Badge의 노출 여부를 설정합니다. |
+| **Show Badge** | **가격 하단**에 표시되는 Badge의 노출 여부를 설정합니다. |
+| **Show Label** | **브랜드명(Label)** 텍스트의 노출 여부를 설정합니다. |
+| **Discount** | 할인 적용 시 할인율과 정가가 함께 표시됩니다. |
+| **Text Lines** | 상품명을 최대 몇 줄까지 노출할지 설정합니다. `Text Lines - 2` 는 최대 두 줄까지 표시한 뒤 **말줄임(…)** 처리합니다. |
+| **Currency** | 가격 앞에 표시되는 통화 기호를 설정합니다. **KRW(₩)·USD($)·JPY(¥)** 를 지원합니다. |
+
+##### Information Card
+> 이미지·가격·옵션 정보를 함께 제공하는 카드로, 다양한 프로퍼티가 존재합니다.
+
+| 하위 절 | 시안 설명 (원문) |
+|---|---|
+| **Maximum Options** | 모든 옵션을 활성화했을 때의 최대 구성 예시입니다. 옵션 셀렉트 필드 · 쿠폰 배너 · 옵션 Row(수량/가격) · 배송 정보(국내/해외)가 모두 표시됩니다. |
+| **Viewport** | Desktop와 Mobile 뷰포트에 따라 레이아웃이 달라집니다. ※오타(`Desktop와`) |
+| **Discount** | 기본형(false)과 할인형(true) 타입을 제공합니다. |
+| **Overseas** | 해외 배송 여부에 따라 배송 정보 영역이 달라집니다. |
+| **Show Stepper** | 수량 조절 스테퍼의 노출 여부를 설정합니다. |
+| **Show Coupon** | 쿠폰/혜택 배너의 노출 여부를 설정합니다. |
+
+##### Profile Card
+> 아바타와 타이틀·서브타이틀로 구성된 카드로, 크기와 상태 프로퍼티가 존재합니다.
+
+| 하위 절 | 시안 설명 (원문) |
+|---|---|
+| **Size** | `lg` 와 `md` 두 가지 크기를 제공합니다. |
+| **State** | `default` / `hover` / `pressed` / `disabled` 4가지 상태를 제공합니다. |
+| **Show Avatar** | 아바타(프로필 이미지)의 노출 여부를 설정합니다. |
+| **Show Subtitle** | 서브타이틀 텍스트의 노출 여부를 설정합니다. |
+
+##### Event Card `3476:9796` / Cart Item `3476:10039`
+
+아래 두 절 참조. Cart Item 에는 절이 둘 더 붙었습니다.
+
+| 하위 절 | 시안 설명 (원문) |
+|---|---|
+| **Anatomy** (Cart Item) | 컴포넌트의 내부 구조를 나타냅니다. 각 영역은 독립적인 하위 컴포넌트로 구성됩니다. |
+| **Slot: addOptionRow** (Cart Item) | 슬롯을 통해 옵션 행(OptionRow)을 유연하게 추가하거나 제거할 수 있습니다. **다중 옵션 상품에는 여러 행을 추가합니다.** |
 
 ##### Event Card `3476:9796`
 
@@ -377,6 +432,8 @@ Figma 컴포넌트 설명(`3436:8388`):
 | 9 | Usage 가이드가 **없는** 컴포넌트: Avatar · Carousel · List · Table · Text List |
 | 11 | `OptionRow` 가이드의 축(`isDiscount`)과 베리언트 축(`viewport`)이 다름 |
 | 12 | `Price` 의 `discout` 오타가 절 제목·프로퍼티·컴포넌트 설명 세 곳에 모두 존재 |
+| 13 | Label 가이드의 `label` ↔ 코드의 `text`, 그리고 `color` 축이 베리언트에 없음 |
+| 14 | Card(Usage) 각 절의 프리뷰 치수는 미조사 (Mobile 140px 외) |
 | 10 | `Sphere(스피어)` 도메인 용어의 정의 |
 
 ---

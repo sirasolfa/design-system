@@ -28,6 +28,18 @@ ProductCard (viewport=desktop | mobile)
 
 `Product List` 는 위 카드를 나열한 목록 예시이고, `Currency Switcher` 로 통화 전환 예시를 함께 보여줍니다.
 
+`Card(Usage)` > Product Card 절의 규칙:
+
+| 프로퍼티 | 규칙 |
+|---|---|
+| `viewport` | **Mobile default width 140px** |
+| `showImageBadge` | 이미지 위 Badge |
+| `showBadge` | **가격 하단** Badge |
+| `showLabel` | 브랜드명 노출 |
+| `textLines` | `2` = 두 줄까지 표시 후 **말줄임(…)** |
+| `currency` | KRW(₩) · USD($) · JPY(¥) |
+| 최대 구성 | 이미지 Badge + Wishlist + 브랜드명 + 상품명 + 할인가 + **상태 Badge 최대 4개** |
+
 **통화는 Price 컴포넌트의 베리언트**(`currency=KRW | USD | JPY`)로 처리합니다. → [../components/content-display.md](../components/content-display.md#price-343215991)
 
 ## 2. 상품 상세 (InfoCard)
@@ -51,6 +63,9 @@ InfoCard (viewport, isDiscount, isOverseas)
 │  └ Additional Product Information
 └ ButtonActionBar              ← 하단 고정 액션
 ```
+
+InfoCard 의 나머지 프로퍼티 — `showStepper`(수량 조절 스테퍼 노출) · `showCoupon`(쿠폰/혜택 배너 노출).
+최대 구성은 **옵션 셀렉트 필드 · 쿠폰 배너 · 옵션 Row(수량/가격) · 배송 정보(국내/해외)** 가 모두 표시된 상태입니다.
 
 ### 해외 배송 (`isOverseas=true`)
 
@@ -103,6 +118,9 @@ CartItem (viewport=desktop|mobile, state=default|selected|disabled)
 상품명·가격·옵션·수량 스테퍼가 흐려지며 체크박스가 비활성화됩니다.
 
 옵션 행은 `옵션 <값>` + 우측 `×`(삭제), 그 아래 `− 1 +` 스테퍼와 `KRW ₩999,999` 가격이 놓입니다.
+
+`Cart Item(Usage)` 는 `Anatomy`(각 영역은 독립적인 하위 컴포넌트로 구성) 와
+**`Slot: addOptionRow`**(슬롯으로 옵션 행을 유연하게 추가·제거, 다중 옵션 상품에는 여러 행) 절을 더 갖습니다.
 
 바텀시트 버전은 여기에 `ActionArea` + `ButtonPair` 가 붙습니다
 (`Bottom Sheet` `1065:18681` 안의 `Action Area(Usage)`).
