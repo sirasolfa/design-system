@@ -169,6 +169,27 @@ Semantic Color Token 페이지(`144:419`)의 표 원문입니다.
 | 5 | `sementic/background/default` `#ffffff` · `sementic/background/inverse` `#0b0b0f` | 컬렉션 이름 오타(`sementic`). `color/bg/*` 와 중복되는 레거시로 보임 |
 | 6 | 오타 토큰 `color.text.priamry`, `color.divider.defualt` | Figma 원문 그대로. 코드로 옮기기 전 정정 여부 결정 필요 |
 | 7 | `color/bg/overlay/mask`(40%)가 Semantic 표에 누락 | `dim`(64%)과의 사용 구분 기준 확인 필요 |
+| 8 | 아래 §4의 미문서화 토큰 6종 | Semantic 표에 추가 필요 |
+
+---
+
+## 4. Semantic 표에 없는데 실제로 쓰이는 토큰 `[F]`
+
+컴포넌트 코드에서 참조가 확인된 것들입니다. Semantic Color Token 페이지에는 없습니다.
+
+| 변수 | 값 | 확인된 사용처 |
+|---|---|---|
+| `color/bg/overlay/mask` | `rgba(0,0,0,0.4)` | Drawer Dimmer |
+| `color/bg/surface/neutral-soft` | `#f4f6fb` (gray/150) | Dialog 보조 버튼(취소) 배경 |
+| `color/bg/surface/inverse` | `#2f3744` (gray/900) | Dialog 주 버튼(확인) 배경 |
+| `color/text/subtle` | `#464c53` | Dialog(Usage) 설명 문장 |
+| `color/text/status/negative` | `#e6374f` (red/600) | 할인율, Label 필수 표시(`*`) |
+| `color/background/white` | `#ffffff` | Dialog 예시 프레임 배경 |
+
+> `color/text/subtle` `#464c53` 은 **gray 팔레트 어느 단계와도 일치하지 않습니다**
+> (gray/800 `#4b5465` / gray/700 `#697180` 사이). 다른 라이브러리에서 넘어온 값일 가능성이 있습니다. `[?]`
+>
+> `color/background/white` 와 `color/bg/surface/default` 는 같은 흰색을 가리키는 중복 토큰입니다. `[?]`
 
 ---
 

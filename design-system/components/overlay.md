@@ -35,7 +35,37 @@
 
 > **다이얼로그의 최대 높이는 화면 높이 기준 20% 여백을 가져야 합니다.**
 
-프레임에 `예시-높이 1080` 블록으로 검증 예시가 그려져 있습니다. `Dim` 레이어가 별도로 존재합니다.
+### 사용 가이드 — `Dialog(Usage)` `4805:36820`
+
+> **Guide** — 다이얼로그(Dialog)의 사용 예시를 안내합니다.
+
+한 개 절(`height`)로 이뤄집니다.
+
+> 다이얼로그의 최대 높이는 화면 높이 기준 20% 여백을 가져야 합니다.
+
+`예시-높이 1080` 프레임에 측정선과 두 주석이 그려져 있습니다.
+
+| 주석 | 내용 |
+|---|---|
+| 초록(`color/green/400`) | **Dialog 최대 높이 : 디바이스 화면 높이 기준 20% 여백** |
+| 파랑(`color/blue/400`) | **기준 화면 높이 : 1080px** |
+
+프리뷰 Alert 실측값:
+
+| 항목 | 값 |
+|---|---|
+| 최대 높이 | `864px` (= 1080 × 0.8) |
+| 최대 폭 / 폭 | `480px` |
+| 패딩 | `layout.spacing.md` (20) |
+| 내부 gap | `layout.gap.24` |
+| 라운드 | `shape.rounded.md` (12) |
+| 그림자 | `semantic/shadow/overlay` |
+| Dim | `color/bg/overlay/dim` = `rgba(0,0,0,0.64)` |
+| 액션 | `ButtonPair` — 취소(`color/bg/surface/neutral-soft`) / 확인(`color/bg/surface/inverse`), 높이 44 |
+
+`ButtonPair` Figma 컴포넌트 설명(`436:5863`):
+> 주요 액션과 보조 액션을 함께 제공하는 버튼 쌍 컴포넌트입니다. 수평/수직 방향과 3가지 사이즈(lg, md, sm)를
+> 지원하며, **`showSubButton` 속성으로 보조 버튼의 표시 여부**를 제어할 수 있습니다.
 
 ## Drawer `1065:18140`
 
@@ -86,7 +116,7 @@
 > 페이지 하단의 `Search(Usage)` 프레임이 실제로는 Bottom Sheet 가이드입니다.
 > → [위 절 참조](#searchusage-는-실제로-bottom-sheet-가이드입니다-f)
 
-### 사용 가이드 — `Action Area(Usage)`
+### 사용 가이드 — `Sheet(Usage)` `3572:31464` (이전 이름 `Action Area(Usage)`)
 
 > **Guide** — 액션 영역(Action Area) 컴포넌트의 사용 예시를 안내합니다.
 
@@ -125,9 +155,9 @@
 `CartItem`, `└ Checkbox-atomic`, `Ratio`, `Price`, `addOptionRow`, `└ OptionRow`, `IconOnly`, `ActionArea`, `ButtonPair`.
 → [../patterns/commerce.md](../patterns/commerce.md)
 
-> `[?]` 이 가이드는 파일 안에 **두 벌** 존재합니다. Bottom Sheet 안의 `3572:31464`(1440×1870)와,
-> 페이지 트리에서 조회되지 않는 `3261:4202`(1440×2791). 위 내용은 더 최신으로 보이는 후자 기준입니다.
-> 어느 쪽이 정본인지 확인이 필요합니다.
+> `[?]` 이 프레임은 그 사이 **`Action Area(Usage)` → `Sheet(Usage)` 로 개명**되고 높이도
+> 1870 → 1637 로 줄었습니다. 위 내용은 조사 시점의 `3261:4202`(1440×2791) 기준이라
+> 현재 프레임과 다를 수 있습니다. 재확인이 필요합니다.
 
 ## Toast `1368:9769`
 
@@ -137,7 +167,11 @@
 | `Toast/Text` | `Icon=True \| False`, `Line=Single \| Multi` |
 | `Toast/Icon` | `Option=Check mark \| Loading \| Exclamation Mark \| Custom` |
 
-### 사용 가이드 — `Toast(Usage)` `1368:10031`
+> ⚠️ **현재 Toast 프레임(`1368:9769`)은 자식이 하나도 없는 빈 프레임입니다** (1600×6349).
+> 아래 내용은 이전 조사 시점(`Toast(Usage)` `1368:10031`)의 기록이며, 지금은 조회되지 않습니다.
+> 재작업 중인 것으로 보입니다.
+
+### 사용 가이드 — `Toast(Usage)` `1368:10031` (현재 조회 불가)
 
 > **Guide** — 토스트(Toast)의 사용 예시를 안내합니다.
 
@@ -269,8 +303,11 @@
 | 7 | 각 컴포넌트의 `Version Info` 본문 미조사 |
 | 8 | `Action Area(Usage)` 가 두 벌 존재 (`3572:31464` / `3261:4202`) — 정본 확인 필요 |
 | 9 | Toast 가이드의 `Behavior`·`Usage`·`Design Spec` 설명 문장이 비어 있음 |
-| 10 | Usage 가이드가 **없는** 오버레이: Dialog · Tooltip · Snack Bar |
+| 10 | Usage 가이드가 **없는** 오버레이: Tooltip · Snack Bar |
 | 11 | `Search(Usage)` 프레임명이 내용(Bottom Sheet)과 불일치 — 이름 정정 필요 |
+| 13 | Toast 프레임이 비어 있음 — 재작업 중인지, 가이드가 사라진 것인지 |
+| 14 | `Sheet(Usage)` 개명·축소 후 내용 재확인 |
+| 15 | Bottom Sheet 가이드가 **두 개**(`Sheet(Usage)` + 프레임명 `Search(Usage)`) — 통합 필요 |
 | 12 | Bottom Sheet 최대 높이 90% vs Dialog 80% — 의도된 차이인지 |
 
 ---

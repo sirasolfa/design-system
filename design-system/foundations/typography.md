@@ -93,6 +93,9 @@ Change Log `251222`: **label 1: 15px, 140% → 16px, 150%** (현재 값이 변�
 | `Label/1` | 16 | SemiBold 600 | 1.5 | 0 |
 | `Label/2` | 14 | SemiBold 600 | 1.4 | 1 |
 | `Label/3` | 13 | SemiBold 600 | 1.4 | 1 |
+| `Label/4` | 12 | SemiBold 600 | 1.4 | 1 |
+
+`Label/4` 는 Label(Usage)·OptionRow(Usage) 의 레이블에서 확인했습니다.
 
 ### Caption
 
@@ -106,11 +109,20 @@ Typography(Usage) Caption 절의 설명: **"보조 설명, 부가 정보, 상태
 | `Caption/3` | *미확인* `[?]` | — | — | — |
 | `Caption/semibold/1` | 12 | SemiBold 600 | 1.4 | 1 |
 | `Caption/semibold/2` | *미확인* `[?]` | — | — | — |
-| `Caption/semibold/3` | *미확인* `[?]` | — | — | — |
+| `Caption/semibold/3` | 10 | SemiBold 600 | 1.5 | 1 |
 
-`Caption/1`, `Caption/3`, `Caption/semibold/2`, `Caption/semibold/3` 은
-`search_design_system` 으로 **라이브러리에 존재함은 확인**했지만, 조사한 프레임들이 사용하지 않아
-사이즈/행간 값을 읽지 못했습니다. 추정값을 적지 않았습니다.
+`Caption/semibold/3`(10 / SemiBold)은 Price 컴포넌트의 통화 코드(`KRW`)에서 확인했습니다.
+`Caption/1`, `Caption/3`, `Caption/semibold/2` 는 라이브러리에 존재하지만 값은 아직 미확인입니다.
+
+### Price — 별도 카테고리 `[F]`
+
+| 스타일 | Size | Weight | Line height | Letter spacing |
+|---|---|---|---|---|
+| `Price/1` | 12 | Regular 400 | 1.4 | 0 |
+
+OptionRow(Usage) 의 할인 전 가격(취소선)에서 확인했습니다.
+**Display/Title/Subtitle/Body/Action/Label/Caption 7개 외에 `Price` 카테고리가 따로 있습니다.**
+다른 단계(`Price/2` 등)의 존재 여부는 미확인입니다. `[?]`
 
 ---
 
@@ -133,7 +145,8 @@ Typography(Usage) Caption 절의 설명: **"보조 설명, 부가 정보, 상태
 
 | # | 항목 |
 |---|---|
-| 1 | `Caption/1`, `Caption/3`, `Caption/semibold/2`, `Caption/semibold/3` 의 사이즈/행간/자간 |
+| 1 | `Caption/1`, `Caption/3`, `Caption/semibold/2` 의 사이즈/행간/자간 |
+| 1b | `Price` 카테고리의 전체 단계 (`Price/1` 만 확인) |
 | 2 | 폰트 패밀리 변수가 `typo/font-family/primary` 와 `typo/font-family/Pretendard Variable` 두 갈래. 둘 다 값은 `Pretendard Variable` 이지만 스타일마다 참조가 다름 — 하나로 정리할지 |
 | 3 | `139:1666` 프레임 이름에 붙은 **"(업데이트 필요)"** — 어떤 부분이 미갱신인지 시안에 명시 없음 |
 | 4 | Typography(Usage)에 `Heading` 이름의 프레임이 남아 있음(`163:1025`). Change Log 상 Title로 통합됐으므로 잔재로 보임 |

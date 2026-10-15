@@ -43,9 +43,15 @@ Usage 가이드에는 등장하는 프로퍼티가 있습니다. Figma의 **bool
 | 컴포넌트 | 베리언트 프로퍼티 | Usage 가이드에만 있는 프로퍼티 |
 |---|---|---|
 | Thumbnail `Ratio` | `ratio`, `color` | **`showDimmer`** |
-| Label | `size`, `textAlign` | **`showCount`**, **`required`** |
+| Label | `size`, `textAlign` | **`showCount`**, **`showRequired`**, `color`, `text` |
 | EventCard | `viewport`, `status` | **`showSubtitle`** |
 | CartItem | `viewport`, `state` | **`checked`** (가이드 표기 `Checked`), `type` |
+| Accordion | `type`, `size`, `expand` | **`showLeadingIcon`**(+`└ leadingIcon` Instance Swap), **`showBodyTxt`**, **`showBadge`**, **`showTopDivider`**, **`showBottomDivider`**, **`showSubItems`**, Slot `addSubRow`, Slot `addSubAccordion` |
+| Price | `type`, `size`, `currency`, `discout` | **`price`**, **`discountPrice`**, **`originalPrice`** (텍스트 프로퍼티) |
+| OptionRow | `viewport`, `showOption`, `isDisabled` | **`isDiscount`**, **`optionName`** |
+
+Accordion 은 베리언트 3개 뒤에 **boolean 6개 + Slot 2개**가 더 있습니다.
+베리언트 목록만 보면 10개 중 3개만 알게 됩니다.
 
 구현 시 props를 베리언트 목록만 보고 정의하면 이 항목들이 누락됩니다.
 
@@ -61,7 +67,32 @@ Usage 가이드에는 등장하는 프로퍼티가 있습니다. Figma의 **bool
 | `size` | `lg` · `md` · `sm` |
 | `expand` | `true` · `false` |
 
-베리언트 12개 (2 × 3 × 2).
+베리언트 12개 (2 × 3 × 2). 실측 높이 — `lg` 60 · `md` 52 · `sm` 44.
+
+#### 사용 가이드 — `Accordion(Usage)` `4073:12234`
+
+> **Guide** — Accordion 컴포넌트의 속성별 사용법을 안내합니다.
+
+10개 절로 **속성 하나씩** 설명합니다. 이 파일에서 가장 촘촘한 가이드입니다.
+
+| # | 절 | 시안 설명 (원문) |
+|---|---|---|
+| 1 | **Type** | type 속성으로 아코디언의 유형을 선택합니다. `info`는 펼쳤을 때 자유로운 콘텐츠를 Slot(InfoContainer)으로 삽입할 수 있고, `contents`는 하위 아이템 목록을 표시합니다. |
+| 2 | **Size** | size 속성으로 아코디언의 높이를 조절합니다. lg · md · sm 세 가지 크기를 지원하며, 사용 맥락에 맞게 선택합니다. |
+| 3 | **Expand** | expand 속성으로 아코디언의 펼침/접힘 상태를 전환합니다. false일 때 제목만 표시되고, true일 때 하위 콘텐츠가 노출됩니다. |
+| 4 | **Show Leading Icon** | showLeadingIcon 속성을 활성화하면 제목 왼쪽에 아이콘이 표시됩니다. `└ leadingIcon` 속성(Instance Swap)으로 원하는 아이콘으로 교체할 수 있습니다. |
+| 5 | **Show Body Text** | showBodyTxt 속성을 활성화하면 제목 아래에 부가 설명 텍스트가 표시됩니다. 접힌 상태에서도 추가 정보를 함께 노출할 수 있습니다. |
+| 6 | **Show Badge** | showBadge 속성을 활성화하면 제목 옆에 Badge가 표시됩니다. 새로운 항목이나 업데이트된 항목을 강조할 때 사용합니다. |
+| 7 | **Show Top / Bottom Divider** | showTopDivider, showBottomDivider 속성으로 상단·하단 구분선의 노출 여부를 개별 설정합니다. **여러 아코디언을 연속 배치할 때 중복 구분선을 방지**할 수 있습니다. |
+| 8 | **Show Sub Items** | `└ showSubItems` 속성으로 contents 타입의 하위 아이템 목록 노출 여부를 설정합니다. expand=true 상태에서 적용되며, 비활성화하면 빈 컨테이너만 표시됩니다. |
+| 9 | **addSubRow** (Slot) | addSubRow Slot을 사용하여 info 타입 아코디언의 펼친 영역에 자유 콘텐츠를 삽입할 수 있습니다. expand=true 상태에서 Slot 영역이 활성화됩니다. |
+| 10 | **addSubAccordion** (Slot) | addSubAccordion Slot을 사용하여 아코디언 내부에 **중첩(Nested) 아코디언**을 삽입할 수 있습니다. contents 타입의 expand=true 상태에서 하위 아코디언을 구성할 때 활용합니다. |
+
+`showTopDivider` / `showBottomDivider` 프리뷰는 `divider=both` · `top only` · `none` 세 가지를 보여줍니다.
+구성 요소로 `New Badge`, `Sub Accordion`, `Info Row`(Label + Value)가 쓰입니다.
+
+> **Figma Slot 기능**을 쓰는 유일한 컴포넌트입니다(`addSubRow`, `addSubAccordion`).
+> 코드로는 children / render prop 에 대응합니다.
 
 ### Avatar `1621:13663`
 
@@ -88,6 +119,27 @@ Usage 가이드에는 등장하는 프로퍼티가 있습니다. Figma의 **bool
 | `showOption` | `true` · `false` |
 | `isDisabled` | `true` · `false` |
 
+#### 사용 가이드 — `OptionRow(Usage)` `4726:13681`
+
+> **Guide** — 옵션 행(OptionRow)의 사용 예시를 안내합니다.
+
+| 절 | 시안 설명 (원문) |
+|---|---|
+| **Show Option** | 옵션 정보 노출 여부를 `showOption=true/false`로 설정합니다. |
+| **Is Discount** | 할인 가격 노출 여부를 `isDiscount=true/false`로 설정합니다. |
+| **Is Disabled** | 비활성 상태에 따라 `isDisabled=true/false`로 설정합니다. |
+| **Option Name** | `optionName` 속성으로 옵션명을 설정합니다. |
+
+실측값 — 폭 **335px 고정**, 높이 `showOption=true` **88** / `false` **56**.
+`isDiscount=true` 는 원가에 취소선 + 할인율(예 `5%`, `color/text/status/negative`) + 할인가를 함께 보여줍니다.
+`optionName` 프리뷰는 `default`(옵션 A) / `custom`(옵션 B) 두 가지입니다.
+
+Figma 컴포넌트 설명(`3421:17455`):
+> 상품 옵션명, 수량 조절(Stepper), 가격을 한 행으로 표시하는 공용 컴포넌트입니다.
+> 장바구니, 상품 상세 등 옵션 선택이 필요한 다양한 맥락에서 사용됩니다.
+
+> `[?]` 가이드에는 `viewport` 가 없고 대신 `isDiscount` 가 있습니다. 베리언트 목록과 축이 다릅니다.
+
 ### Price `3432:15991`
 
 | 프로퍼티 | 값 |
@@ -100,6 +152,33 @@ Usage 가이드에는 등장하는 프로퍼티가 있습니다. Figma의 **bool
 베리언트 36개 (3 × 2 × 3 × 2). 프로퍼티 이름 `discout` 는 **Figma 원문 그대로의 오타**입니다(`discount`).
 
 **다중 통화(KRW / USD / JPY)를 토큰 레벨이 아니라 컴포넌트 베리언트로 다룹니다.**
+
+#### 사용 가이드 — `Price(Usage)` `4703:13314`
+
+> **Guide** — 가격(Price)의 사용 예시를 안내합니다.
+
+7개 절. 앞 4개는 베리언트, 뒤 3개는 **텍스트 프로퍼티**입니다.
+
+| 절 | 시안 설명 (원문) |
+|---|---|
+| **Type** | 사용 맥락에 따라 info, product, cart 타입을 선택합니다. |
+| **Size** | 화면 위계에 따라 lg, md 크기를 선택합니다. |
+| **Currency** | 통화에 따라 KRW, USD, JPY를 선택합니다. |
+| **Discout** ※오타 | `discout` 속성으로 할인 정보 표시 여부를 선택합니다. |
+| **Price** | `price` 속성으로 판매가 숫자를 설정합니다. |
+| **Discount Price** | `discountPrice` 속성으로 **할인율 텍스트**를 설정합니다. |
+| **Original Price** | `originalPrice` 속성으로 **할인 전 가격 텍스트**를 설정합니다. |
+
+Figma 컴포넌트 설명(`3436:8388`):
+> 상품 가격을 표시하는 공통 아토믹 요소.
+> **외화 전환 시 original price의 통화 기호를 변경해서 사용합니다.**
+> 1. type: 사용 맥락에 따른 스타일 분기 (product / info / cart)
+> 2. size: lg / md
+> 3. currency: 통화 단위 (KRW / USD / JPY)
+> 4. discout: 할인 여부 (true 시 할인율 + 원가 표시)
+
+구성: `KRW`(통화 코드, `Caption/semibold/3` 10px) + `₩`(기호, 13px) + 숫자(14px).
+절 제목과 프로퍼티 이름 모두 `Discout` 오타가 그대로 쓰입니다.
 
 ### Label `1621:17834`
 
@@ -295,7 +374,9 @@ Usage 가이드에는 등장하는 프로퍼티가 있습니다. Figma의 **bool
 | 6 | Thumbnail 프레임의 무의미한 레이어 이름 잔재 |
 | 7 | 각 컴포넌트의 `Version Info` · `Develop Info` 본문은 미조사 |
 | 8 | `CartItem` 의 `Type`/`Checked`(가이드) ↔ `state`(베리언트) 축 불일치 |
-| 9 | Usage 가이드가 **없는** 컴포넌트: Accordion · Avatar · Carousel · OptionRow · Price · List · Table · Text List |
+| 9 | Usage 가이드가 **없는** 컴포넌트: Avatar · Carousel · List · Table · Text List |
+| 11 | `OptionRow` 가이드의 축(`isDiscount`)과 베리언트 축(`viewport`)이 다름 |
+| 12 | `Price` 의 `discout` 오타가 절 제목·프로퍼티·컴포넌트 설명 세 곳에 모두 존재 |
 | 10 | `Sphere(스피어)` 도메인 용어의 정의 |
 
 ---

@@ -114,11 +114,13 @@ Figma Overview 페이지(`1183:7436`)에 적힌 상태 그대로입니다.
 
 | 가이드 있음 | 없음 |
 |---|---|
-| Card(5종) · Thumbnail · Label · Drawer · Toast · **Bottom Sheet**(Action Area + 시트 동작) | Accordion · Avatar · Carousel · OptionRow · Price · List · Table · Text List · Dialog · Tooltip · Snack Bar · **Inputs 13종 전부** |
+| **Accordion**(10절) · Card(5종) · **Price** · **OptionRow** · Thumbnail · Label · **Dialog** · Drawer · Bottom Sheet | Avatar · Carousel · List · Table · Text List · Tooltip · Snack Bar · **Inputs 13종 전부** · Toast(프레임이 비어 있음) |
 
 **가이드에는 베리언트 목록에 없는 프로퍼티가 나옵니다** — `showDimmer` · `showCount` · `required` ·
-`showSubtitle` · `checked`. 베리언트만 보고 props를 정의하면 누락되므로, 구현 전 해당 컴포넌트의
-가이드 절을 반드시 확인하세요. → [components/README.md](design-system/components/README.md)
+`showSubtitle` · `checked` · `isDiscount` · `price` · `originalPrice` 등. **Accordion 은 베리언트 3개
+뒤에 프로퍼티가 8개 더 있습니다**(boolean 6 + Figma Slot 2). 베리언트만 보고 props를 정의하면
+누락되므로, 구현 전 해당 컴포넌트의 가이드 절을 반드시 확인하세요.
+→ [components/README.md](design-system/components/README.md)
 
 > ⚠️ **프레임 이름과 내용이 다른 경우가 있습니다.** `Search(Usage)` 는 레이어 이름만 Search 이고
 > 실제로는 **Bottom Sheet 사용 가이드**(Max Height 90% · 확장/닫기 동작 · 키보드 대응)입니다.
@@ -134,6 +136,7 @@ Figma Overview 페이지(`1183:7436`)에 적힌 상태 그대로입니다.
   이 카테고리들은 상세 프레임이 없습니다. 해당 문서는 Overview 상태표와 Change Log 기반입니다.
 - `Caption/1`, `Caption/3`, `Caption/semibold/2·3` 의 사이즈/행간
 - `color.icon.*` 의 실제 HEX
+- **Toast 가이드** — 프레임이 현재 비어 있습니다(재작업 중으로 보임)
 - **검색(Search) 패턴의 사용 규칙** — `Search(Usage)` 프레임은 이름만 Search 이고 내용은 Bottom Sheet 가이드였습니다. 검색 UI 규칙은 파일 어디에도 없습니다.
 - 아이콘 200종 각각의 Figma 컴포넌트 설명
 
@@ -149,7 +152,8 @@ Figma Overview 페이지(`1183:7436`)에 적힌 상태 그대로입니다.
 | 변수 컬렉션 | `primitive` (예: `number/unit/*`, `color/*`) |
 | Figma 페이지 | Overview `1183:7436` · Foundation `0:1` · • Content Display `1595:11126` · • Overlay `1595:11129` |
 | 조사 방법 | Figma MCP — `get_metadata` / `get_variable_defs` / `get_screenshot` / `get_design_context` / `search_design_system` |
-| 최초 조사일 | 2026-09-02 (Usage 가이드 보강 동일자) |
+| 최초 조사일 | 2026-09-02 |
+| 마지막 갱신 | 2026-10-15 (Usage 가이드 4종 추가 · spacing 스케일 정정) |
 | 적용 서비스 | [`sirasolfa/shop-lab`](https://github.com/sirasolfa/shop-lab) — NOVERA shop |
 
 갱신 절차와 MCP 호출 순서는 [`design-system/README.md`](design-system/README.md#원본-갱신-방법)에 있습니다.
