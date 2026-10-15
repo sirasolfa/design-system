@@ -35,6 +35,7 @@ NDS(NOVERA Design System) 문서 세트. 진입점은 저장소 루트의 [`READ
 ### guidelines
 | 문서 | 성격 |
 |---|---|
+| [design-requests.md](guidelines/design-requests.md) | **디자인팀에 보낼 요청 목록** |
 | [naming.md](guidelines/naming.md) | `[F]` 네이밍 규칙 (Change Log 원문) |
 | [changelog.md](guidelines/changelog.md) | `[F]` Change Log 전문 |
 | [ai-guidelines.md](guidelines/ai-guidelines.md) | **`[A]` AI 제안 — 이 파일만 제안입니다** |

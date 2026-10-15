@@ -55,6 +55,7 @@ design-system/
 ├── patterns/                       [F] 컴포넌트 하단 "(Usage)" 가이드 = 사용 규칙·조합
 │   └── commerce.md                 상품 카드 · 상품 상세 · 장바구니 · 이벤트 · 액션 영역
 └── guidelines/
+    ├── design-requests.md          디자인팀 요청 목록 (가이드 공백·불일치·오타)
     ├── naming.md                   [F] 네이밍 규칙 (Change Log 원문)
     ├── changelog.md                [F] Change Log 전문
     └── ai-guidelines.md            [A] AI 제안 — 이 파일만 제안입니다
@@ -115,6 +116,9 @@ Figma Overview 페이지(`1183:7436`)에 적힌 상태 그대로입니다.
 | 가이드 있음 | 없음 |
 |---|---|
 | **Accordion**(10절) · Card(5종) · **Price** · **OptionRow** · Thumbnail · Label · **Dialog** · Drawer · Bottom Sheet | Avatar · Carousel · List · Table · Text List · Tooltip · Snack Bar · **Inputs 13종 전부** · Toast(프레임이 비어 있음) |
+
+가이드가 없는 컴포넌트와 디자인에 확인이 필요한 항목은
+**[guidelines/design-requests.md](design-system/guidelines/design-requests.md)** 에 요청 형태로 정리돼 있습니다.
 
 **가이드에는 베리언트 목록에 없는 프로퍼티가 나옵니다** — `showDimmer` · `showCount` · `required` ·
 `showSubtitle` · `checked` · `isDiscount` · `price` · `originalPrice` 등. **Accordion 은 베리언트 3개

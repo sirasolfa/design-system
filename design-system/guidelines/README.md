@@ -2,6 +2,7 @@
 
 | 문서 | 성격 | 내용 |
 |---|---|---|
+| [design-requests.md](design-requests.md) | 디자인팀 요청 | 가이드 없는 컴포넌트 · 이름/값 불일치 · 오타 정정 요청 |
 | [naming.md](naming.md) | `[F]` Figma 사실 | Change Log의 네이밍 규칙 원문 + 실제 적용/이탈 사례 |
 | [changelog.md](changelog.md) | `[F]` Figma 사실 | Change Log 전문(원문 그대로) + 시간순 정리 |
 | [ai-guidelines.md](ai-guidelines.md) | **`[A]` AI 제안** | Figma에 근거가 없는 제안. **채택 전까지 규범 아님** |
