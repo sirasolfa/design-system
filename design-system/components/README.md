@@ -26,7 +26,7 @@ Overview 페이지는 6개 카테고리, **총 50개 컴포넌트**를 나열합
 | Overview | `1183:7436` | 인벤토리 표 + Change Log 섹션 |
 | Foundation | `0:1` | 토큰 |
 | • Content Display | `1595:11126` | 컴포넌트 상세 11개 |
-| • Overlay | `1595:11129` | 컴포넌트 상세 6개 + Search(Usage) |
+| • Overlay | `1595:11129` | 컴포넌트 상세 6개 + Bottom Sheet 가이드(프레임명 `Search(Usage)`) |
 
 즉 **Navigation · Button · Inputs · Indicator & Status 카테고리의 상세 프레임은 이 파일에 없습니다.**
 해당 문서들은 Overview의 상태표와 Change Log에서 읽어낸 사실만 담고 있습니다.
@@ -49,11 +49,12 @@ Overlay 쪽도 비슷합니다.
 
 | Overview 표 (`1635:14884`) | • Overlay 페이지 (`1595:11129`) |
 |---|---|
-| Popup, Dialog, Drawer, Bottom sheet, Toast, Tooltip, Snackbar, System message, Pulldown menu | Dialog, Drawer, Bottom Sheet, Toast, Tooltip, Snack Bar, *(+ Search(Usage))* |
+| Popup, Dialog, Drawer, Bottom sheet, Toast, Tooltip, Snackbar, System message, Pulldown menu | Dialog, Drawer, Bottom Sheet, Toast, Tooltip, Snack Bar, *(+ `Search(Usage)` — 실제 내용은 Bottom Sheet)* |
 
 - Overview에만: `Popup`, `System message`, `Pulldown menu`
 - 이름 표기 차이: `Snackbar` ↔ `Snack Bar`, `Bottom sheet` ↔ `Bottom Sheet`
-- 상세 페이지에 있는 `Search(Usage)`(`1170:5163`)는 Overview 상 **Inputs > Search** 항목의 사용례로 보입니다.
+- `Search(Usage)`(`1170:5163`)는 **이름만 Search** 이고 내용은 Bottom Sheet 사용 가이드입니다.
+  → [overlay.md](overlay.md#searchusage-는-실제로-bottom-sheet-가이드입니다-f)
 
 ---
 
@@ -92,12 +93,11 @@ Foundation 페이지의 `System Conponent` 섹션(`260:1443`)에 이 템플릿�
 | Label | Text Align · Show Count |
 | Drawer | Anatomy · Spec |
 | Toast | Element Patterns & Types · Behavior · Usage · Design Spec |
-| Bottom Sheet (Action Area) | Button Pair · Button Action Bar · Action Area |
-| Search | State · Spec · Behavior · With Keyboard |
+| Bottom Sheet | ① Action Area: Button Pair · Button Action Bar · Action Area<br>② State · Spec · Behavior · With Keyboard (프레임명 `Search(Usage)`) |
 
 | 없음 |
 |---|
-| Accordion · Avatar · Carousel · OptionRow · Price · List · Table · Text List · Dialog · Tooltip · Snack Bar |
+| Accordion · Avatar · Carousel · OptionRow · Price · List · Table · Text List · Dialog · Tooltip · Snack Bar · **Inputs 13종 전부** |
 
 **가이드에는 베리언트 목록에 없는 프로퍼티가 등장합니다**(`showDimmer`, `showCount`, `required`,
 `showSubtitle`, `checked`). Figma의 boolean 프로퍼티로 보이며, 베리언트만 보고 구현하면 누락됩니다.

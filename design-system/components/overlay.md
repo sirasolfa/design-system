@@ -82,6 +82,10 @@
 | `BottomSheet` | `type=default` |
 | `Overlay` | `type=bottom` |
 
+> **이 컴포넌트에는 가이드가 두 개 있습니다.** 아래 `Action Area(Usage)` 외에,
+> 페이지 하단의 `Search(Usage)` 프레임이 실제로는 Bottom Sheet 가이드입니다.
+> → [위 절 참조](#searchusage-는-실제로-bottom-sheet-가이드입니다-f)
+
 ### 사용 가이드 — `Action Area(Usage)`
 
 > **Guide** — 액션 영역(Action Area) 컴포넌트의 사용 예시를 안내합니다.
@@ -180,22 +184,75 @@
 
 `Link` · `Item` · `Lable`(오타 — `Label`) · `direction/chevron` 아이콘으로 구성됩니다.
 
-## Search(Usage) `1170:5163`
+## ⚠️ `Search(Usage)` 는 실제로 **Bottom Sheet** 가이드입니다 `[F]`
 
-이 페이지에 함께 놓인 `1440 × 9388` 크기의 검색 사용 가이드입니다.
-Overview 상 **Inputs > Search (Done)** 항목을 다룹니다.
+• Overlay 페이지의 `1440 × 9388` 프레임은 **레이어 이름이 `Search(Usage)`** 이지만,
+프레임 안의 제목은 다음과 같습니다.
 
-| 절 | 노드 |
+> # Bottom Sheet Usage Guide
+> 바텀시트(Bottom Sheet)의 사용 예시를 안내합니다.
+
+프리뷰도 전부 `bottom_sheet` 인스턴스(`dimmer` + `open` → `bottom_sheet__atomic` ·
+`content_area` · `button_area`)이며, 검색 필드는 한 번도 나오지 않습니다.
+**레이어 이름이 잘못 붙은 것으로 보입니다.** 내용 기준으로는 아래 [Bottom Sheet](#bottom-sheet-106518681) 의
+사용 가이드로 읽어야 합니다.
+
+### Bottom Sheet 사용 가이드 — `1170:5163` (프레임명 `Search(Usage)`)
+
+#### 1. State `1170:5169`
+
+바텀시트의 세로 구조를 세 영역으로 나눕니다.
+
+| 영역 | 동작 |
 |---|---|
-| **State** | `1170:5170` |
-| **Spec** | `1170:5195` |
-| **Behavior** | `1171:6187` |
-| **With Keyboard** | `1171:6777` |
+| Header (핸들바 + `direction/chevron` 뒤로 + 타이틀 + `suggested/close` 닫기) | **Sticky** |
+| 콘텐츠 영역 | **Scrollable Area** |
+| 하단 버튼 영역 | **Sticky** |
 
-`With Keyboard` 는 모바일 키보드가 올라온 상태의 검색 화면을 따로 다룹니다.
-→ [inputs.md](inputs.md) · [../patterns/README.md](../patterns/README.md)
+타이틀 샘플 문구: **"타이틀 최대 두 줄 스물여섯자 입력"**
 
-> `[?]` 각 절의 Description 텍스트는 미조사입니다(프리뷰가 커서 절 제목만 확인).
+#### 2. Spec `1170:5195`
+
+| 항목 | 값 |
+|---|---|
+| **Container** `1170:5198` | **Max Height 90%** · **Flexible Width** |
+| **Header Text** `1170:5210` | 해상도 **430 / 360 / 320** 세 폭에서 검증 |
+
+최소 폭 320에서도 타이틀 26자가 두 줄 안에 들어가도록 잡혀 있습니다.
+
+> Dialog 는 "최대 높이는 화면 높이 기준 **20% 여백**"(= 최대 80%), Bottom Sheet 는 **최대 90%** 로
+> 서로 다릅니다.
+
+#### 3. Behavior `1171:6187`
+
+**Appear/Disappear** `1171:6190`
+> \[닫기\]버튼 또는 dimmer를 탭할 시 모달이 사라집니다.
+
+**Expandable** `1171:6321`
+> - 상단의 핸들바를 드래그하면 화면을 확장할 수 있습니다.
+> - 콘텐츠 길이에 따라 전체 화면까지 확장됩니다.
+> - 스크롤이 최상단일 때 핸들바를 아래로 드래그하면 시트를 닫을 수 있습니다.
+
+**Not Expandable** `1171:6653` — 프리뷰 두 개: `Dismissable` / `Not dismissable`
+> - 화면 확장이 불가능한 경우, 핸들바 드래그에 따른 닫힘 여부는 콘텐츠에 따라 다르게 적용됩니다.
+> - 스크롤이 최상단일 때만 핸들바 드래그로 하단 시트를 닫을 수 있습니다.
+> - 닫힘이 유효하지 않은 콘텐츠에서는 바텀시트를 고정할 수 있습니다.
+
+즉 **확장 가능 여부**와 **닫기 가능 여부**가 별개 축이며, 닫으면 안 되는 콘텐츠에서는 시트를 고정합니다.
+
+#### 4. With Keyboard `1171:6777`
+
+**Not Scrollable** `1171:6780`
+> 키보드 노출 시, 모달은 키보드 높이만큼 상단으로 이동합니다.
+
+**Scrollable** `1171:8518`
+> 키보드가 표시된 이후 하단 시트가 일부 가려질 경우, 사용자가 모달 내 콘텐츠를 모두 확인할 수 있도록
+> 콘텐츠 영역에 스크롤이 가능해야 합니다.
+
+프리뷰는 `Keyboards / iPhone`(높이 218) 인스턴스를 얹어 보여줍니다.
+
+> `[?]` 네 절의 `Description` 텍스트 노드는 모두 **hidden** 처리돼 있습니다. 위 문장들은
+> 각 Text Sample 의 Label/Title 에 적힌 것입니다.
 
 ---
 
@@ -213,6 +270,8 @@ Overview 상 **Inputs > Search (Done)** 항목을 다룹니다.
 | 8 | `Action Area(Usage)` 가 두 벌 존재 (`3572:31464` / `3261:4202`) — 정본 확인 필요 |
 | 9 | Toast 가이드의 `Behavior`·`Usage`·`Design Spec` 설명 문장이 비어 있음 |
 | 10 | Usage 가이드가 **없는** 오버레이: Dialog · Tooltip · Snack Bar |
+| 11 | `Search(Usage)` 프레임명이 내용(Bottom Sheet)과 불일치 — 이름 정정 필요 |
+| 12 | Bottom Sheet 최대 높이 90% vs Dialog 80% — 의도된 차이인지 |
 
 ---
 

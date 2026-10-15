@@ -17,7 +17,7 @@
 | Video player | Before | N/A |
 | Data table | Before | N/A |
 
-> 상세 페이지의 실제 구성은 이 표와 다릅니다 → [README.md](README.md#overview-표와-상세-페이지의-목록이-다릅니다-)
+> 상세 페이지의 실제 구성은 이 표와 다릅니다 → [README.md](README.md#overview-표와-상세-페이지의-목록이-다릅니다)
 
 ---
 

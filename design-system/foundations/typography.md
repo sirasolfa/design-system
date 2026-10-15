@@ -20,7 +20,7 @@
 > `251217` 항목에는 "폰트 사이즈 토큰화 고민"이 취소선으로 적혀 있습니다(= 보류).
 
 > 폰트 패밀리 변수가 `primary` 와 `Pretendard Variable` **두 개**로 존재하고, 스타일마다 참조가 갈립니다.
-> `Display/1`, `Subtitle/*` 은 `primary` 를, 나머지는 `Pretendard Variable` 을 참조합니다. → [확인 필요](#4-확인-필요-)
+> `Display/1`, `Subtitle/*` 은 `primary` 를, 나머지는 `Pretendard Variable` 을 참조합니다. → [확인 필요](#4-확인-필요)
 
 ---
 

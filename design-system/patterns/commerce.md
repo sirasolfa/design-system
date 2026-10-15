@@ -1,6 +1,6 @@
 # Commerce 패턴 `[F]`
 
-> 출처 — `Card(Usage)` `2582:8855`, `Action Area(Usage)`(Bottom Sheet `1065:18681`), `Search(Usage)` `1170:5163`
+> 출처 — `Card(Usage)` `2582:8855`, `Action Area(Usage)`(Bottom Sheet `1065:18681`)
 > 아래는 Usage 프레임의 **레이어 구성에서 읽어낸 조합**입니다. 픽셀 수치는 조사하지 않았습니다.
 
 NDS는 커머스(NOVERA shop) 전용 개념을 컴포넌트 레벨에 직접 담고 있습니다:
@@ -155,9 +155,9 @@ CartItem (viewport=desktop|mobile, state=default|selected|disabled)
 
 ## 6. 검색
 
-`Search(Usage)` `1170:5163` — `1440 × 9388`. 절 구성은 **State · Spec · Behavior · With Keyboard** 입니다.
-Overview 상 `Inputs > Search` 는 **Done** 상태입니다.
-`[?]` 각 절의 상세 내용은 미조사입니다. → [../components/inputs.md](../components/inputs.md)
+Overview 상 `Inputs > Search` 는 **Done** 이지만, **사용 가이드는 없습니다.**
+`Search(Usage)` 라는 프레임이 있으나 내용은 Bottom Sheet 가이드였습니다.
+→ [../components/inputs.md](../components/inputs.md) · [../components/overlay.md](../components/overlay.md)
 
 ---
 
@@ -166,7 +166,7 @@ Overview 상 `Inputs > Search` 는 **Done** 상태입니다.
 | # | 항목 |
 |---|---|
 | 1 | 각 Usage 프레임의 실제 치수(카드 폭, 갭, 패딩) — 레이어 구조만 조사함 |
-| 2 | `Search(Usage)` 4개 절의 상세 내용 |
+| 2 | 검색 패턴의 사용 규칙 — 어느 프레임에도 문서화돼 있지 않음 |
 | 3 | 상품 상태(품절/재입고/한정) 표현 규칙 — `Badge` 가 Done이나 값 정의 미확인 |
 | 4 | 통화 전환(`Currency Switcher`)의 동작 규칙 |
 | 5 | `ProfileCard` 의 용도 — 가이드 설명은 "아바타와 타이틀·서브타이틀로 구성된 카드"까지만 |

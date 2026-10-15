@@ -1,7 +1,7 @@
 # Inputs `[F]`
 
 > 출처 — Figma Overview `1192:7929`, Change Log 섹션 `20:138`
-> **이 파일에 Inputs 상세 프레임은 없습니다**(Search 사용례만 • Overlay 페이지에 존재).
+> **이 파일에 Inputs 상세 프레임은 없습니다.** Usage 가이드도 없습니다(아래 참조).
 
 ## Overview 상태표
 
@@ -61,26 +61,23 @@ Label 컴포넌트 자체는 • Content Display 페이지에 있습니다 → [
 
 | 자산 | 위치 | 비고 |
 |---|---|---|
-| `Search(Usage)` | • Overlay 페이지 `1170:5163` | `1440 × 9388`. **검색 사용 가이드** — 아래 참조 |
+| ~~`Search(Usage)`~~ | • Overlay 페이지 `1170:5163` | **검색 가이드가 아닙니다** — 아래 참조 |
 | `└ OptionRow` | • Content Display 페이지 `3445:9254` | `viewport`, `showOption`, `isDisabled` |
 | `└ Checkbox-atomic` | Card / Bottom Sheet 프레임 안 인스턴스 | Checkbox 원자 컴포넌트가 이미 조합에 쓰이는 중 |
 | `SelectField` | Card(Usage) 안 | 상품 옵션 선택 |
 
 즉 **Checkbox 는 Overview 상 In-progress 이지만, 다른 컴포넌트(CartItem 등) 안에서 이미 인스턴스로 사용 중**입니다.
 
-### 사용 가이드 — `Search(Usage)` `1170:5163`
+### ⚠️ `Search(Usage)` 는 검색 가이드가 아닙니다 `[F]`
 
-Inputs 카테고리에서 **유일하게 Usage 가이드를 가진 컴포넌트**입니다(• Overlay 페이지에 위치).
+• Overlay 페이지의 `1170:5163` 프레임은 **레이어 이름만 `Search(Usage)`** 이고,
+프레임 안의 제목은 **"Bottom Sheet Usage Guide — 바텀시트(Bottom Sheet)의 사용 예시를 안내합니다."**
+입니다. 프리뷰도 전부 `bottom_sheet` 인스턴스이며 검색 필드는 등장하지 않습니다.
 
-| 절 | 노드 | 다루는 것 |
-|---|---|---|
-| **State** | `1170:5170` | 검색 필드의 상태별 표현 |
-| **Spec** | `1170:5195` | 치수·토큰 규격 |
-| **Behavior** | `1171:6187` | 입력·결과 동작 |
-| **With Keyboard** | `1171:6777` | 모바일 키보드가 올라온 상태 |
+내용은 [overlay.md](overlay.md#searchusage-는-실제로-bottom-sheet-가이드입니다-f) 에 정리했습니다.
 
-> `[?]` 각 절의 설명 문장과 프리뷰 내용은 미조사입니다(프레임이 `1440 × 9388` 로 커서 절 제목만 확인).
-> 검색 UI를 구현할 때는 이 프레임을 Figma에서 직접 열어보는 편이 빠릅니다.
+**따라서 Inputs 카테고리 13개 컴포넌트에는 Usage 가이드가 하나도 없습니다.**
+`Search` 가 Overview 상 **Done** 인데도 사용 규칙 문서가 없는 상태입니다.
 
 ---
 
@@ -105,8 +102,8 @@ Inputs 카테고리에서 **유일하게 Usage 가이드를 가진 컴포넌트*
 | 4 | 에러 메시지·헬퍼 텍스트의 스타일/색 토큰 |
 | 5 | `required` 표시의 시각 규칙(별표 색·위치) |
 | 6 | Checkbox / Radio / Switch 의 사이즈 스케일 |
-| 7 | `Search(Usage)` 각 절의 상세 내용 (State / Spec / Behavior / With Keyboard) |
-| 8 | Search 외 Inputs 컴포넌트에는 Usage 가이드가 없음 |
+| 7 | **Inputs 13종 전부 Usage 가이드 없음** — `Search(Usage)` 는 Bottom Sheet 가이드였음 |
+| 8 | Search 가 Done 인데 사용 규칙 문서가 어디에도 없음 |
 
 ---
 

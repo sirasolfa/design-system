@@ -114,11 +114,15 @@ Figma Overview 페이지(`1183:7436`)에 적힌 상태 그대로입니다.
 
 | 가이드 있음 | 없음 |
 |---|---|
-| Card(5종) · Thumbnail · Label · Drawer · Toast · Action Area · Search | Accordion · Avatar · Carousel · OptionRow · Price · List · Table · Text List · Dialog · Tooltip · Snack Bar |
+| Card(5종) · Thumbnail · Label · Drawer · Toast · **Bottom Sheet**(Action Area + 시트 동작) | Accordion · Avatar · Carousel · OptionRow · Price · List · Table · Text List · Dialog · Tooltip · Snack Bar · **Inputs 13종 전부** |
 
 **가이드에는 베리언트 목록에 없는 프로퍼티가 나옵니다** — `showDimmer` · `showCount` · `required` ·
 `showSubtitle` · `checked`. 베리언트만 보고 props를 정의하면 누락되므로, 구현 전 해당 컴포넌트의
 가이드 절을 반드시 확인하세요. → [components/README.md](design-system/components/README.md)
+
+> ⚠️ **프레임 이름과 내용이 다른 경우가 있습니다.** `Search(Usage)` 는 레이어 이름만 Search 이고
+> 실제로는 **Bottom Sheet 사용 가이드**(Max Height 90% · 확장/닫기 동작 · 키보드 대응)입니다.
+> 가이드를 찾을 때는 프레임 이름이 아니라 안쪽 제목을 확인하세요.
 
 ## 조사되지 않은 영역
 
@@ -130,7 +134,7 @@ Figma Overview 페이지(`1183:7436`)에 적힌 상태 그대로입니다.
   이 카테고리들은 상세 프레임이 없습니다. 해당 문서는 Overview 상태표와 Change Log 기반입니다.
 - `Caption/1`, `Caption/3`, `Caption/semibold/2·3` 의 사이즈/행간
 - `color.icon.*` 의 실제 HEX
-- `Search(Usage)` 4개 절(State · Spec · Behavior · With Keyboard)의 상세 내용
+- **검색(Search) 패턴의 사용 규칙** — `Search(Usage)` 프레임은 이름만 Search 이고 내용은 Bottom Sheet 가이드였습니다. 검색 UI 규칙은 파일 어디에도 없습니다.
 - 아이콘 200종 각각의 Figma 컴포넌트 설명
 
 ---

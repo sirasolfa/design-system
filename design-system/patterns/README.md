@@ -22,11 +22,15 @@ NDS는 "패턴"이라는 이름의 별도 페이지를 두지 않습니다. 대�
 | `Drawer(Usage)` | `1358:8391` | 1440×2296 | Anatomy · Spec |
 | `Toast(Usage)` | `1368:10031` | 1280×6008 | Element Patterns & Types · Behavior · Usage · Design Spec |
 | `Action Area(Usage)` | `3572:31464` · `3261:4202` | 1440×1870 / 2791 | Button Pair · Button Action Bar · Action Area |
-| `Search(Usage)` | `1170:5163` | 1440×9388 | State · Spec · Behavior · With Keyboard |
+| `Search(Usage)` ⚠️ | `1170:5163` | 1440×9388 | **실제로는 Bottom Sheet 가이드** — State · Spec · Behavior · With Keyboard |
 
 **Usage 가이드가 없는 컴포넌트** — Accordion · Avatar · Carousel · OptionRow · Price · List ·
-Table · Text List · Dialog · Tooltip · Snack Bar. 이 컴포넌트들은 베리언트 목록만 있고
-사용 규칙 문장이 없습니다.
+Table · Text List · Dialog · Tooltip · Snack Bar, 그리고 **Inputs 카테고리 13종 전부**.
+이 컴포넌트들은 베리언트 목록만 있고 사용 규칙 문장이 없습니다.
+
+> ⚠️ **프레임 이름을 믿지 마세요.** `Search(Usage)` 는 레이어 이름만 Search 이고,
+> 프레임 안 제목은 "Bottom Sheet Usage Guide" 입니다. 프리뷰도 전부 `bottom_sheet` 입니다.
+> 가이드를 식별할 때는 프레임 이름이 아니라 **Title Container 의 Guide/Subtitle 텍스트**를 확인해야 합니다.
 
 ## Usage 프레임의 공통 구성 `[F]`
 
@@ -63,7 +67,7 @@ Table · Text List · Dialog · Tooltip · Snack Bar. 이 컴포넌트들은 베
 
 | # | 항목 |
 |---|---|
-| 1 | `Search(Usage)` (1440×9388) 의 내부 흐름은 이번 조사에서 구조만 확인. 단계별 화면 미조사 |
+| 1 | `Search(Usage)` 프레임명이 내용(Bottom Sheet)과 불일치 — Figma 쪽 이름 정정 필요 |
 | 2 | 패턴 레벨의 문서(빈 상태·에러·로딩 처리 규칙)는 시안에 없음 |
 | 3 | `Typography(Usage)` 의 각 레벨별 "언제 쓰는가" 설명은 예시 문구로만 제시되고 규칙 문장은 없음 |
 | 4 | Toast 가이드 3개 절의 Description 이 비어 있음 |
