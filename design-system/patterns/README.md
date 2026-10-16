@@ -24,7 +24,7 @@ NDS는 "패턴"이라는 이름의 별도 페이지를 두지 않습니다. 대�
 | `Dialog(Usage)` | `4805:36820` | 1440×1400 | height (최대 높이 80%) |
 | `Label(Usage)` | `1621:17816` | 1440×2571 | Size · Color · Text Align · Show Count · Show Required · Text |
 | `Drawer(Usage)` | `1358:8391` | 1440×2296 | Anatomy · Spec |
-| `Toast(Usage)` | `4493:25180` | 1440×5193 | Overview · Spec(Anatomy·Variants·Show Icon·Show Close·Position·Interaction) · Usage(Do/Don't) |
+| `Toast(Usage)` | `4493:25180` | 1440×5193 | Overview · Spec(Anatomy·Variants·Show Icon·Show Close·Position·Interaction) · Usage(Do/Don't — 문구 작성 규칙) |
 | `Sheet(Usage)` | `3572:31464` | 1440×1637 | Button Pair · Button Action Bar · Action Area<br>*(이전 이름 `Action Area(Usage)`)* |
 | `BottomSheet(Usage)` | `1170:5163` | 1600×9388 | State · Spec · Behavior · With Keyboard<br>*(이전 이름 `Search(Usage)` — 2026-10-15 개명)* |
 

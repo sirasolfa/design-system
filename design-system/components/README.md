@@ -98,7 +98,7 @@ Foundation 페이지의 `System Conponent` 섹션(`260:1443`)에 이 템플릿�
 | **Dialog** | `4805:36820` | height (최대 높이 80% 규칙) |
 | Drawer | `1358:8391` | Anatomy · Spec |
 | Bottom Sheet | `3572:31464` / `1170:5163` | ① `Sheet(Usage)`: Height 규칙<br>② `BottomSheet(Usage)`: State · Spec · Behavior · With Keyboard |
-| Toast | `4493:25180` | Overview · Spec(Anatomy·Position·Interaction 등) · Usage(Do/Don't) — **수치가 가장 구체적** |
+| Toast | `4493:25180` | Overview · Spec(Anatomy·Position·Interaction 등) · Usage(Do/Don't 문구 규칙) — **수치가 가장 구체적** |
 
 | 없음 |
 |---|
