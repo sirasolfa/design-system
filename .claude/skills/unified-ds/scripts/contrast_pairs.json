@@ -1,0 +1,28 @@
+{
+  "_note": "references/recipes.md '대비 검사 대상' 표의 기계 판독본. 두 곳을 함께 고친다.",
+  "composite_base": "bg/layer-default",
+  "pairs": [
+    {"fg": "fg/neutral-contrast", "bg": "bg/neutral-solid", "min": 4.5},
+    {"fg": "fg/neutral-subtle", "bg": "bg/neutral-weak", "min": 4.5},
+    {"fg": "fg/contrast", "bg": "bg/brand-solid", "min": 4.5},
+    {"fg": "fg/contrast", "bg": "bg/critical-solid", "min": 4.5},
+    {"fg": "fg/contrast", "bg": "bg/informative-solid", "min": 4.5},
+    {"fg": "fg/contrast", "bg": "bg/positive-solid", "min": 4.5},
+    {"fg": "fg/warning-contrast", "bg": "bg/warning-solid", "min": 4.5},
+    {"fg": "fg/brand", "bg": "bg/brand-weak", "min": 4.5},
+    {"fg": "fg/informative", "bg": "bg/informative-weak", "min": 4.5},
+    {"fg": "fg/positive", "bg": "bg/positive-weak", "min": 4.5},
+    {"fg": "fg/warning", "bg": "bg/warning-weak", "min": 4.5},
+    {"fg": "fg/critical", "bg": "bg/critical-weak", "min": 4.5},
+    {"fg": "fg/neutral", "bg": "bg/layer-default", "min": 4.5},
+    {"fg": "fg/neutral-subtle", "bg": "bg/layer-default", "min": 4.5},
+    {"fg": "fg/neutral-muted", "bg": "bg/layer-default", "min": 4.5},
+    {"fg": "stroke/brand", "bg": "bg/layer-default", "min": 3.0},
+    {"fg": "stroke/informative", "bg": "bg/layer-default", "min": 3.0},
+    {"fg": "stroke/positive", "bg": "bg/layer-default", "min": 3.0},
+    {"fg": "stroke/warning", "bg": "bg/layer-default", "min": 3.0},
+    {"fg": "stroke/critical", "bg": "bg/layer-default", "min": 3.0},
+    {"fg": "stroke/neutral-strong", "bg": "bg/layer-default", "min": 3.0},
+    {"fg": "stroke/focus", "bg": "bg/layer-default", "min": 3.0}
+  ]
+}

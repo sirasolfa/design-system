@@ -86,6 +86,7 @@ GitHub 앵커 슬러그는 **구두점 제거 후 공백 1개당 하이픈 1개*
 
 ```
 README.md                      진입점
+.claude/skills/unified-ds/     통합 DS(NDS + 1CHON) 작업 스킬 — 토큰·컴포넌트·코드 생성·기록 규칙
 design-system/
 ├── foundations/   color · typography · layout · shape · elevation · iconography · brand
 ├── components/    README(인벤토리 50종) + 카테고리 6종

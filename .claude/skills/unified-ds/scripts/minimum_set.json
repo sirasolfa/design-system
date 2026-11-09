@@ -1,0 +1,23 @@
+{
+  "bg": [
+    "bg/layer-default", "bg/layer-basement", "bg/layer-floating", "bg/layer-fill",
+    "bg/state-hover", "bg/state-pressed",
+    "bg/neutral-solid", "bg/neutral-weak",
+    "bg/brand-solid", "bg/brand-weak",
+    "bg/informative-solid", "bg/informative-weak",
+    "bg/positive-solid", "bg/positive-weak",
+    "bg/warning-solid", "bg/warning-weak",
+    "bg/critical-solid", "bg/critical-weak",
+    "bg/disabled", "bg/overlay"
+  ],
+  "fg": [
+    "fg/neutral", "fg/neutral-subtle", "fg/neutral-muted", "fg/neutral-placeholder", "fg/neutral-contrast",
+    "fg/disabled", "fg/brand",
+    "fg/informative", "fg/positive", "fg/warning", "fg/critical",
+    "fg/contrast", "fg/warning-contrast"
+  ],
+  "stroke": [
+    "stroke/neutral", "stroke/neutral-muted", "stroke/neutral-strong", "stroke/focus", "stroke/brand",
+    "stroke/informative", "stroke/positive", "stroke/warning", "stroke/critical"
+  ]
+}
