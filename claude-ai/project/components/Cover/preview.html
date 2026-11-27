@@ -1,0 +1,58 @@
+<!-- @dsCard height=288 -->
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  html, body { margin: 0; background: var(--color-bg-surface-default); }
+  .cover { position: relative; width: 960px; height: 288px; overflow: hidden; font-family: var(--font-sans); }
+  svg { position: absolute; left: 0; top: 0; }
+  .brand { fill: var(--brand-default); }
+  .deep { fill: var(--brand-strongest); }
+  .ink { fill: var(--color-bg-inverse); }
+  .tint { fill: var(--color-icon-brand-bg); }
+  .signal { fill: var(--color-text-status-negative); }
+  .r-sm { rx: var(--shape-rounded-sm); }
+  .r-md { rx: var(--shape-rounded-md); }
+  .r-xl { rx: var(--shape-rounded-xl); }
+  .pill { rx: 12px; }
+  .text { position: absolute; left: 40px; bottom: 36px; max-width: 880px; }
+  .name { margin: 0; font-size: 64px; line-height: .95; font-weight: 700; letter-spacing: -1px; color: var(--color-text-primary); }
+  .tag { margin: 12px 0 0; font-size: 14px; line-height: 1.4; color: var(--color-text-tertiary); }
+</style>
+</head>
+<body>
+<div class="cover">
+  <!--
+    blocks: brand-default slab 360×112 (rounded-xl), brand-strongest 104×112, bg-inverse 104×52, icon-brand-bg 104×52, a small text-status-negative chip
+    arrangement: top band across the full width (name too wide for the left zone), one tall slab with satellites
+    pattern: geometric, modular dense UI (product cards, chips) → tiles cut by rounded-sm/md, some merged two-wide like components, pill chips (rounded-full = half of 24)
+    scales: gap 8 (layout/gap/8), tiles 48 / 104 (48+8+48), radii shape-rounded-sm 8, md 12, xl 24, band top 24 (layout-spacing-lg)
+  -->
+  <svg width="960" height="140" viewBox="0 0 960 140" aria-hidden="true">
+    <rect class="brand r-xl" x="-24" y="24" width="384" height="112"/>
+    <rect class="deep r-md" x="368" y="24" width="104" height="112"/>
+    <rect class="ink r-md" x="480" y="24" width="104" height="52"/>
+    <rect class="tint r-md" x="480" y="84" width="104" height="52"/>
+    <!-- tile field: 48px tiles, gap 8, some two-wide -->
+    <rect class="tint r-sm" x="592" y="24" width="48" height="52"/>
+    <rect class="brand r-sm" x="648" y="24" width="104" height="52"/>
+    <rect class="tint r-sm" x="760" y="24" width="48" height="52"/>
+    <rect class="deep r-sm" x="816" y="24" width="48" height="52"/>
+    <rect class="tint r-sm" x="872" y="24" width="104" height="52"/>
+    <rect class="tint r-sm" x="592" y="84" width="104" height="52"/>
+    <rect class="ink r-sm" x="704" y="84" width="48" height="52"/>
+    <rect class="tint r-sm" x="760" y="84" width="104" height="52"/>
+    <rect class="brand r-sm" x="872" y="84" width="48" height="52"/>
+    <rect class="tint r-sm" x="928" y="84" width="48" height="52"/>
+    <!-- chips -->
+    <rect class="tint pill" x="24" y="100" width="72" height="24" opacity="0.9"/>
+    <rect class="signal pill" x="104" y="100" width="40" height="24"/>
+  </svg>
+  <div class="text">
+    <h1 class="name">NOVERA Design System</h1>
+    <p class="tag">NOVERA shop을 만드는 토큰 · 컴포넌트 · 패턴. Figma 원본에서 읽은 사실만 담았습니다.</p>
+  </div>
+</div>
+</body>
+</html>

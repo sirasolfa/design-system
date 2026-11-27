@@ -82,6 +82,22 @@ GitHub 앵커 슬러그는 **구두점 제거 후 공백 1개당 하이픈 1개*
 - 메시지는 한국어, 본문에 **무엇을 왜 바꿨는지**와 새로 확인된 사실을 적습니다.
 - 디자인에 요청할 것이 생기면 `guidelines/design-requests.md` 에 노드 ID와 함께 추가합니다.
 
+## claude.ai 디자인 시스템과 동기화
+
+claude.ai 설정 '디자인 시스템'에 NDS가 **NOVERA Design System**으로 등록돼 있습니다
+(Design System 아티팩트 `https://claude.ai/artifact/6mk9TCWcm56vRbRcoB3keg`).
+`claude-ai/project/` 가 거기에 게시한 파일이고, `README.md` 와 `components/Cover/preview.html` 만 손으로 씁니다.
+
+`foundations/` 등 사실 문서를 고쳤다면:
+
+```bash
+python3 scripts/build-claude-ai.py            # tokens.json · 섹션 · 컴포넌트 README 재생성
+python3 scripts/build-claude-ai.py --index    # 게시 직전에만 (design-system.json 갱신)
+```
+
+그다음 Artifact publish(`url` 위 주소, `root` = `claude-ai/`)로 **바뀐 파일만** 올리고, 인덱스는 마지막에 보냅니다.
+`[A]`(`ai-guidelines.md`)와 `design-requests.md` 는 올리지 않습니다.
+
 ## 문서 지도
 
 ```
@@ -91,4 +107,6 @@ design-system/
 ├── components/    README(인벤토리 50종) + 카테고리 6종
 ├── patterns/      README((Usage) 가이드 목록) · commerce
 └── guidelines/    design-requests · naming · changelog · ai-guidelines
+claude-ai/project/             claude.ai 디자인 시스템에 게시한 묶음 ([F]/[?]만)
+scripts/                       check-links · build-claude-ai
 ```
